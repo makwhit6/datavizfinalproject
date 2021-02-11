@@ -9,6 +9,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(reticulate)
+py_install("cleannlp")
+system("pip install cleannlp")
+```
+
 ```{r code_setup}
 
 #install.packages("cleanNLP")
@@ -18,10 +24,7 @@ library(magrittr)
 library(ggplot2)
 cnlp_init_udpipe()
 
-pip install cleannlp
 ```
-
-
 
 ``` {r test}
 
@@ -30,13 +33,21 @@ annotate_test <- cnlp_annotate(input = c(
   "Here's the second. It is short too!",
   "The third text is the shortest."))
 
+
+d <- annotate_test$token
+
+d %>% 
+  count(xpos) %>% 
+  filter(xpos != ".") %>% 
+  ggplot(aes(n, xpos)) +
+  geom_col()
+
+
 lapply(annotate_test, head)
 
 ```
 
-```{r state_of_union_ex}
-
-cnlp_init_spacy()
+```{r ch1}
 
 
 
