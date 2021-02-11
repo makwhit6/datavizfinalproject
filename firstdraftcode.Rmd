@@ -9,8 +9,35 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r code setup}
+```{r code_setup}
 
-install.packages("cleanNLP")
+#install.packages("cleanNLP")
+library(cleanNLP)
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+cnlp_init_udpipe()
+
+pip install cleannlp
+```
+
+
+
+``` {r test}
+
+annotate_test <- cnlp_annotate(input = c(
+  "Here is the first text. It is short.",
+  "Here's the second. It is short too!",
+  "The third text is the shortest."))
+
+lapply(annotate_test, head)
+
+```
+
+```{r state_of_union_ex}
+
+cnlp_init_spacy()
+
+
 
 ```
