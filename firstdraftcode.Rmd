@@ -54,7 +54,7 @@ cat("This is a normal string in R",
 ```
 
 ```{r ch1}
-annotate_ch1 <- cat(cnlp_annotate(input = c("It was almost December, and Jonas was beginning to be frightened.",
+annotate_ch1 <- cnlp_annotate(input = c("It was almost December, and Jonas was beginning to be frightened.",
                                         "No. Wrong word, Jonas thought.",
                                         "Frightened meant that deep, sickening feeling of something terrible about to happen.",
                                         "Frightened was the way he had felt a year ago when an unidentified aircraft had overflown the community twice.",
@@ -94,7 +94,7 @@ annotate_ch1 <- cat(cnlp_annotate(input = c("It was almost December, and Jonas w
                                         "\"You go, Lily,\" he said, seeing his sister, who was much younger-- only a Seven--wiggling with impatience in her chair.",
                                         "\"I felt very angry this afternoon,\" Lily announced. \"My Childcare group was at the play area, and we had a visiting group of Sevens, and they didn't obey the rules at all. One of them--a male; I don't know his name--kept going right to the front of the line for the slide, even though the rest of us were all waiting. I felt so angry at him. I made my hand into a fist, like this.\" She held up a clenched fist and the rest of the family smiled at her small defiant gesture.",
                                         "\"Why do you think the visitors didn't obey the rules?\" Mother asked.",
-                                        "Lily considered, and shook her head. \"I don't know. They acted like...like...\”",
+                                        "Lily considered, and shook her head. \"I don't know. They acted like...like...\"",
                                         "\"Animals?\" Jonas suggested. He laughed.",
                                         "\"That's right,\" Lily said, laughing too. \"Like animals.\" Neither child knew what the word meant, exactly, but it was often used to describe someone uneducated or clumsy, someone who didn't fit in.",
                                         "\"Where were the visitors from?\" Father asked.",
@@ -136,11 +136,11 @@ annotate_ch1 <- cat(cnlp_annotate(input = c("It was almost December, and Jonas w
                                         "\"I'm glad you told us of your feelings,\" Father said.",
                                         "\"Lily,\" Mother said, beckoning to the little girl, \"Go on now and get into your nightclothes. Father and I are going to stay here and talk to Jonas for a while.\"",
                                         "Lily sighed, but obediently she got down from her chair. \"Privately?\" she asked.",
-                                        "Mother nodded. \"Yes,\" she said, \"this talk will be a private one with Jonas.\"")),
-                                        sep = "\n")
+                                        "Mother nodded. \"Yes,\" she said, \"this talk will be a private one with Jonas.\"" ))
 
 
 ```
+
 
 ```{r ch1plot}
 
@@ -155,3 +155,142 @@ ch1 %>%
 lapply(annotate_ch1, head)
 
 ```
+The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. 
+
+```{r ch11}
+
+annotate_ch11 <- cnlp_annotate(input = c("Jonas felt nothing unusual at first. He felt only the light touch of the old man's hands on his back.",
+                                         "He tried to relax, to breathe evenly. The room was absolutely silent, and for a moment Jonas feared that he might disgrace himself now, on the first day of his training, by falling asleep.",
+                                         "Then he shivered. He realized that the touch of the hands felt, suddenly, cold. At the same instant, breathing in, he felt the air change, and his very breath was cold. He licked his lips, and in doing so, his tongue touched the suddenly chilled air.",
+                                         "It was very startling; but he was not at all frightened, now. He was filled with energy, and he breathed again, feeling the sharp intake of frigid air. Now, too, he could feel cold air swirling around his entire body. He felt it blow against his hands where they lay at his sides, and over his back.",
+                                         "The touch of the man's hands seemed to have disappeared.",
+                                         "Now he became aware of an entirely new sensation: pinpricks? No, because they were soft and without pain. Tiny, cold, featherlike feelings peppered his body and face. He put out his tongue again, and caught one of the dots of cold upon it. It disappeared from his awareness instantly; but he caught another, and another. The sensation made him smile.",
+                                         "One part of his consciousness knew that he was still lying there, on the bed, in the Annex room. Yet another, separate part of his being was upright now, in a sitting position, and beneath him he could feel that he was not on the soft decorated bedcovering at all, but rather seated on a flat, hard surface. His hands now held (though at the same time they were still motionless at his sides) a rough, damp rope.",
+                                         "And he could see, though his eyes were closed. He could see a bright, whirling torrent of crystals in the air around him, and he could see them gather on the backs of his hands, like cold fur.",
+                                         "His breath was visible.",
+                                         "Beyond, through the swirl of what he now, somehow, perceived was the thing the old man had spoken of-- snow-- he could look out and down a great distance. He was up high someplace. The ground was thick with the furry snow, but he sat slightly above it on a hard, flat object.",
+                                         "Sled, he knew abruptly. He was sitting on a thing called sled. And the sled itself seemed to be poised at the top of a long, extended mound that rose from the very land where he was. Even as he thought the word \"mound,\" his new consciousness told him hill.",
+                                         "Then the sled, with Jonas himself upon it, began to move through the snowfall, and he understood instantly that now he was going downhill. No voice made an explanation. The experience explained itself to him.",
+                                         "His face cut through the frigid air as he began the descent, moving through the substance called snow on the vehicle called sled, which propelled itself on what he now knew without doubt to be runners.",
+                                         "Comprehending all of those things as he sped downward, he was free to enjoy the breathless glee that overwhelmed him: the speed, the clear cold air, the total silence, the feeling of balance and excitement and peace.",
+                                         "Then, as the angle of incline lessened, as the mound--the hill-- flattened, nearing the bottom, the sled's forward motion slowed. The snow was piled now around it, and he pushed with his body, moving it forward, not wanting the exhilarating ride to end.",
+                                         "Finally the obstruction of the piled snow was too much for the thin runners of the sled, and he came to a stop. He sat there for a moment, panting, holding the rope in his cold hands. Tentatively he opened his eyes--not his snow-hill-sled eyes, for they had been open throughout the strange ride. He opened his ordinary eyes, and saw that he was still on the bed, that he had not moved at all.",
+                                         "The old man, still beside the bed, was watching him. \"How do you feel?\" he asked.",
+                                         "Jonas sat up and tried to answer honestly. \"Surprised,\" he said, after a moment.",
+                                         "The old man wiped his forehead with his sleeve. \"Whew,\" he said. \"It was exhausting. But you know, even transmitting that tiny memory to you--I think it lightened me just a little.\"",
+                                         "\"Do you mean--you did say I could ask questions?\" The man nodded, encouraging his question.",
+                                         "\"Do you mean that now you don't have the memory of it--of that ride on the sled--anymore?\"",
+                                         "\"That's right. A little weight off this old body.\"",
+                                         "\"But it was such fun! And now you don't have it anymore! I took it from you!\"",
+                                         "But the old man laughed. \"All I gave you was one ride, on one sled, in one snow, on one hill. I have a whole world of them in my memory. I could give them to you one by one, a thousand times, and there would still be more.\"",
+                                         
+                                         "\"Are you saying that I--I mean we--could do it again?\" Jonas asked. \"I'd really like to. I think I could steer, by pulling the rope. I didn't try this time, because it was so new.\"",
+                                         "The old man, laughing, shook his head. \"Maybe another day, for a treat. But there's no time, really, just to play. I only wanted to begin by showing you how it works.\"",
+                                         "\"Now,\" he said, turning businesslike, \"lie back down. I want to --\"",
+                                         "Jonas did. He was eager for whatever experience would come next. But he had, suddenly, so many questions.",
+                                         "\"Why don't we have snow, and sleds, and hills?\" he asked. \"And when did we, in the past? Did my parents have sleds when they were young? Did you?\"",
+                                         "The old man shrugged and gave a short laugh. \"No,\" he told Jonas. \"It's a very distant memory. That's why it was so exhausting--I had to tug it forward from many generations back. It was given to me when I was a new Receiver, and the previous Receiver had to pull it through a long time period, too.\"",
+                                         "\"But what happened to those things? Snow, and the rest of it?\"",
+                                         "\"Climate Control. Snow made growing food difficult, limited the agricultural periods. And unpredictable weather made transportation almost impossible at times. It wasn't a practical thing, so it became obsolete when we went to Sameness.\"",
+                                         "\"And hills, too,\" he added. \"They made conveyance of goods unwieldy. Trucks; buses. Slowed them down. So--\" He waved his hand, as if a gesture had caused hills to disappear. \"Sameness,\" he concluded.",
+                                         "Jonas frowned. \"I wish we had those things, still. Just now and then.\"",
+                                         "The old man smiled. \"So do I,\" he said. \"But that choice is not ours.\" \"But sir,\" Jonas suggested, \"since you have so much power--\"",
+                                         "The man corrected him. \"Honor,\" he said firmly. \"I have great honor. So will you. But you will find that that is not the same as power.\"",
+                                         "\"Lie quietly now. Since we've entered into the topic of climate, let me give you something else. And this time I'm not going to tell you the name of it, because I want to test the receiving. You should be able to perceive the name without being told. I gave away snow and sled and downhill and runners by telling them to you in advance.\"",
+                                         "Without being instructed, Jonas closed his eyes again. He felt the hands on his back again. He waited.",
+                                         "Now it came more quickly, the feelings. This time the hands didn't become cold, but instead began to feel warm on his body. They moistened a little. The warmth spread, extending across his shoulders, up his neck, onto the side of his face. He could feel it through his clothed parts, too: a pleasant, all-over sensation; and when he licked his lips this time, the air was hot and heavy.",
+                                        "He didn't move. There was no sled. His posture didn't change. He was simply alone someplace, out of doors, lying down, and the warmth came from far above. It was not as exciting as the ride through the snowy air; but it was pleasurable and comforting.",
+                                        "Suddenly he perceived the word for it: sunshine. He perceived that it came from the sky. Then it ended.",
+                                        "\"Sunshine,\" he said aloud, opening his eyes.",
+                                        "\"Good. You did get the word. That makes my job easier. Not so much explaining.\"",
+                                        "\"And it came from the sky.\" \"That's right,\" the old man said. \"Just the way it used to.\"",
+                                        "\"Before Sameness. Before Climate Control,\" Jonas added.",
+                                        "The man laughed. \"You receive well, and learn quickly. I'm very pleased with you. That's enough for today, I think. We're off to a good start.\"",
+                                        "There was a question bothering Jonas. \"Sir,\" he said, \"The Chief Elder told me--she told everyone--and you told me, too, that it would be painful. So I was a little scared. But it didn't hurt at all. I really enjoyed it.\" He looked quizzically at the old man.",
+                                        "The man sighed. \"I started you with memories of pleasure. My previous failure gave me the wisdom to do that.\" He took a few deep breaths.\"Jonas,\" he said, \"it will be painful. But it need not be painful yet.\"",
+                                        "\"I'm brave. I really am.\" Jonas sat up a little straighter. ",
+                                        "The old man looked at him for a moment. He smiled.",
+                                        "\"I can see that,\" he said. \"Well, since you asked the question--I think I have enough energy for one more transmission.\"",
+                                        "\"Lie down once more. This will be the last today.\"",
+                                        "Jonas obeyed cheerfully. He dosed his eyes, waiting, and felt the hands again; then he felt the warmth again, the sunshine again, coming from the sky of this other consciousness that was so new to him. This time, as he lay basking in the wonderful warmth, he felt the passage of time. His real self was aware that it was only a minute or two; but his other, memory-receiving self felt hours pass in the sun. His skin began to sting. Restlessly he moved one arm, bending it, and felt a sharp pain in the crease of his inner arm at the elbow.",
+                                        "\"Ouch,\" he said loudly, and shifted on the bed. \"Owwww,\" he said, wincing at the shift, and even moving his mouth to speak made his face hurt.",
+                                        "He knew there was a word, but the pain kept him from grasping it.",
+                                        "Then it ended. He opened his eyes, wincing with discomfort. \"It hurt,\" he told the man, \"and I couldn't get the word for it.\"",
+                                        "\"It was sunburn,\" the old man told him.",
+                                        "\"It hurt a lot,\" Jonas said, \"but I'm glad you gave it to me. It was interesting. And now I understand better, what it meant, that there would be pain.\"",
+                                        "The man didn't respond. He sat silently for a second. Finally he said, \"Get up, now. It's time for you to go home.\"",
+                                        "They both walked to the center of the room. Jonas put his tunic back on. \"Goodbye, sir,\" he said. \"Thank you for my first day.\"",
+                                        "The old man nodded to him. He looked drained, and a little sad. \"Sir?\" Jonas said shyly. \"Yes? Do you have a question?\"",
+                                        "\"It's just that I don't know your name. I thought you were The Receiver, but you say that now I'm The Receiver. So I don't know what to call you.\"",
+                                        "The man had sat back down in the comfortable upholstered chair. He moved his shoulders around as if to ease away an aching sensation. He seemed terribly weary.",
+                                        "\"Call me The Giver,\" he told Jonas."))
+
+```
+
+
+```{r ch1plot}
+
+ch11 <- annotate_ch11$token
+
+ch11 %>% 
+  count(upos) %>% 
+  filter(upos != ".") %>% 
+  ggplot(aes(n, upos)) +
+  geom_col()
+
+lapply(annotate_ch11, head)
+
+```
+The above bar chart displays a count of each part of speech within Chapter 11 of *The Giver*. 
+
+```{r ch23}
+annotate_ch23 <- cnlp_annotate(input = c("Jonas felt more and more certain that the destination lay ahead of him, very near now in the night that was approaching. None of his senses confirmed it. He saw nothing ahead except the endless ribbon of road unfolding in twisting narrow curves. He heard no sound ahead.",
+                                         "Yet he felt it: felt that Elsewhere was not far away. But he had little hope left that he would be able to reach it. His hope diminished further when the sharp, cold air began to blur and thicken with swirling white.",
+                                         "Gabriel, wrapped in his inadequate blanket, was hunched, shivering, and silent in his little seat. Jonas stopped the bike wearily, lifted the child down, and realized with heartbreak how cold and weak Gabe had become.",
+                                         "Standing in the freezing mound that was thickening around his numb feet, Jonas opened his own tunic, held Gabriel to his bare chest, and tied the torn and dirty blanket around them both. Gabriel moved feebly against him and whimpered briefly into the silence that surrounded them.",
+                                         "Dimly, from a nearly forgotten perception as blurred as the substance itself, Jonas recalled what the whiteness was.",
+                                         "\"It's called snow, Gabe,\" Jonas whispered. \"Snowflakes. They fall down from the sky, and they're very beautiful.\"",
+                                         "There was no response from the child who had once been so curious and alert. Jonas looked down through the dusk at the little head against his chest. Gabriel's curly hair was matted and filthy, and there were tearstains outlined in dirt on his pale cheeks. His eyes were closed. As Jonas watched, a snowflake drifted down and was caught briefly for a moment's sparkle in the tiny fluttering eyelashes.",
+                                         "Wearily he remounted the bicycle. A steep hill loomed ahead. In the best of conditions, the hill would have been a difficult, demanding ride. But now the rapidly deepening snow obscured the narrow road and made the ride impossible. His front wheel moved forward imperceptibly as he pushed on the pedals with his numb, exhausted legs. But the bicycle stopped. It would not move.",
+                                         "He got off and let it drop sideways into the snow. For a moment he thought how easy it would be to drop beside it himself, to let himself and Gabriel slide into the softness of snow, the darkness of night, the warm comfort of sleep. But he had come this far. He must try to go on.",
+                                         "The memories had fallen behind him now, escaping from his protection to return to the people of his community. Were there any left at all? Could he hold onto a last bit of warmth? Did he still have the strength to Give? Could Gabriel still Receive?",
+                                         "He pressed his hands into Gabriel's back and tried to remember sunshine. For a moment it seemed that nothing came to him, that his power was completely gone. Then flickered suddenly, and he felt tiny tongues of heat begin to creep across and into his frozen feet and legs. He felt his face begin to glow and the tense, cold skin of his arms and hands relax. For a fleeting second he felt that he wanted to keep it for himself, to let himself bathe in sunlight, unburdened by anything or anyone else.",
+                                         "But the moment passed and was followed by an urge, a need, a passionate yearning to share the warmth with the one person left for him to love. Aching from the effort, he forced the memory of warmth into the thin, shivering body in his arms.",
+                                         "Gabriel stirred. For a moment they both were bathed in warmth and renewed strength as they stood hugging each other in the blinding snow.",
+                                         "Jonas began to walk up the hill.",
+                                         "The memory was agonizingly brief. He had trudged no more than a few yards through the night when it was gone and they were cold again.",
+                                         "But his mind was alert now. Warming himself ever so briefly had shaken away the lethargy and resignation and restored his will to survive. He began to walk faster on feet that he could no longer feel. But the hill was treacherously steep; he was impeded by the snow and his own lack of strength. He didn't make it very far before he stumbled and fell forward.",
+                                         "On his knees, unable to rise, Jonas tried a second time. His consciousness grasped at a wisp of another warm memory, and tried desperately to hold it there, to enlarge it, and pass it into Gabriel. His spirits and strength lifted with the momentary warmth and he stood. Again, Gabriel stirred against him as he began to climb.",
+                                         "But the memory faded, leaving him colder than before. If only he had had time to receive more warmth from The Giver before he escaped! Maybe there would be more left for him now. But there was no purpose in if-onlys. His entire concentration now had to be on moving his feet, warming Gabriel and himself, and going forward.",
+                                         "He climbed, stopped, and warmed them both briefly again, with a tiny scrap of memory that seemed certainly to be all he had left.",
+                                         "The top of the hill seemed so far away, and he did not know what lay beyond. But there was nothing left to do but continue. He trudged upward.",
+                                         "As he approached the summit of the hill at last, something began to happen. He was not warmer; if anything, he felt more numb and more cold. He was not less exhausted; on the contrary, his steps were leaden, and he could barely move his freezing, tired legs.",
+                                         "But he began, suddenly, to feel happy. He began to recall happy times. He remembered his parents and his sister. He remembered his friends, Asher and Fiona. He remembered The Giver.",
+                                         "Memories of joy flooded through him suddenly.",
+                                         "He reached the place where the hill crested and he could feel the ground under his snow-covered feet become level. It would not be uphill anymore.",
+                                         "\"We're almost there, Gabriel,\" he whispered, feeling quite certain without knowing why. \"I remember this place, Gabe.\" And it was true. But it was not a grasping of a thin and burdensome recollection; this was different. This was something that he could keep. It was a memory of his own.",
+                                         "He hugged Gabriel and rubbed him briskly, warming him, to keep him alive. The wind was bitterly cold. The snow swirled, blurring his vision. But somewhere ahead, through the blinding storm, he knew there was warmth and light.",
+                                         "Using his final strength, and a special knowledge that was deep inside him, Jonas found the sled that was waiting for them at the top of the hill. Numbly his hands fumbled for the rope.",
+                                         "He settled himself on the sled and hugged Gabe close. The hill was steep but the snow was powdery and soft, and he knew that this time there would be no ice, no fall, no pain. Inside his freezing body, his heart surged with hope.",
+                                         "They started down.",
+                                         "Jonas felt himself losing consciousness and with his whole being willed himself to stay upright atop the sled, clutching Gabriel, keeping him safe. The runners sliced through the snow and the wind whipped at his face as they sped in a straight line through an incision that seemed to lead to the final destination, the place that he had always felt was waiting, the Elsewhere that held their future and their past.",
+                                         "He forced his eyes open as they went downward, downward, sliding, and all at once he could see lights, and he recognized them now. He knew they were shining through the windows of rooms, that they were the red, blue, and yellow lights that twinkled from trees in places where families created and kept memories, where they celebrated love.",
+                                         "Downward, downward, faster and faster. Suddenly he was aware with certainty and joy that below, ahead, they were waiting for him; and that they were waiting, too, for the baby. For the first time, he heard something that he knew to be music. He heard people singing.",
+                                         "Behind him, across vast distances of space and time, from the place he had left, he thought he heard music too. But perhaps it was only an echo."))
+
+```
+
+```{r ch23plot}
+
+ch23 <- annotate_ch23$token
+
+ch23 %>% 
+  count(upos) %>% 
+  filter(upos != ".") %>% 
+  ggplot(aes(n, upos)) +
+  geom_col()
+
+lapply(annotate_ch23, head)
+
+```
+The above bar chart displays a count of each part of speech within Chapter 23 of *The Giver*. 
