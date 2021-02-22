@@ -21,6 +21,8 @@ cnlp_init_spacy(model_name = "en")
 #install.packages("cleanNLP")
 library(cleanNLP)
 library(dplyr)
+#install.packages("gtsummary")
+library(gtsummary)
 library(magrittr)
 library(ggplot2)
 cnlp_init_udpipe()
@@ -28,6 +30,8 @@ cnlp_init_udpipe()
 ```
 
 ``` {r test}
+
+#this code chunk was to test and learn the package
 
 annotate_test <- cnlp_annotate(input = c(
   "Here is the first text. It is short.",
@@ -154,8 +158,13 @@ ch1 %>%
 
 lapply(annotate_ch1, head)
 
+#attempting to summarize the percentages of parts of speech present
+ch1 %>% 
+  select(lemma, upos) %>%
+  tbl_summary(ch1)
+
 ```
-The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. 
+The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
 
 ```{r ch11}
 
@@ -228,7 +237,7 @@ annotate_ch11 <- cnlp_annotate(input = c("Jonas felt nothing unusual at first. H
 ```
 
 
-```{r ch1plot}
+```{r ch11plot}
 
 ch11 <- annotate_ch11$token
 
@@ -241,7 +250,7 @@ ch11 %>%
 lapply(annotate_ch11, head)
 
 ```
-The above bar chart displays a count of each part of speech within Chapter 11 of *The Giver*. 
+The above bar chart displays a count of each part of speech within Chapter 11 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
 
 ```{r ch23}
 annotate_ch23 <- cnlp_annotate(input = c("Jonas felt more and more certain that the destination lay ahead of him, very near now in the night that was approaching. None of his senses confirmed it. He saw nothing ahead except the endless ribbon of road unfolding in twisting narrow curves. He heard no sound ahead.",
@@ -293,4 +302,30 @@ ch23 %>%
 lapply(annotate_ch23, head)
 
 ```
-The above bar chart displays a count of each part of speech within Chapter 23 of *The Giver*. 
+The above bar chart displays a count of each part of speech within Chapter 23 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
+
+```{r verbcomparison}
+
+verbch1 <- ch1 %>%
+  filter(upos == "VERB") %>%
+  mutate(new_col = "ch1")
+
+vec_ch1 <- c(1, 1, 1, 1, 1, 1)
+
+verbch1$new_col <- vec_ch1
+
+verbch11 <- ch11 %>%
+  filter(upos == "VERB")
+
+verbch23 <- ch23 %>%
+  filter(upos == "VERB")
+
+verbcombined <- rbind(verbch1, verbch11, verbch23) %>%
+  pivot_wider()
+
+verbcombined %>%
+  count(upos) %>%
+  ggplot(aes(n, upos)) +
+  geom_col()
+
+```
