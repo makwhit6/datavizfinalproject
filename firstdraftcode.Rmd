@@ -236,7 +236,6 @@ annotate_ch11 <- cnlp_annotate(input = c("Jonas felt nothing unusual at first. H
 
 ```
 
-
 ```{r ch11plot}
 
 ch11 <- annotate_ch11$token
@@ -310,18 +309,15 @@ verbch1 <- ch1 %>%
   filter(upos == "VERB") %>%
   mutate(new_col = "ch1")
 
-vec_ch1 <- c(1, 1, 1, 1, 1, 1)
-
-verbch1$new_col <- vec_ch1
-
 verbch11 <- ch11 %>%
-  filter(upos == "VERB")
+  filter(upos == "VERB") %>%
+  mutate(new_col = "ch11")
 
 verbch23 <- ch23 %>%
-  filter(upos == "VERB")
+  filter(upos == "VERB") %>%
+  mutate(new_col = "ch23")
 
-verbcombined <- rbind(verbch1, verbch11, verbch23) %>%
-  pivot_wider()
+verbcombined <- rbind(verbch1, verbch11, verbch23)
 
 verbcombined %>%
   count(upos) %>%
