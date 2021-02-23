@@ -21,6 +21,7 @@ cnlp_init_spacy(model_name = "en")
 #install.packages("cleanNLP")
 library(cleanNLP)
 library(dplyr)
+library(tidyr)
 #install.packages("gtsummary")
 library(gtsummary)
 library(magrittr)
@@ -317,10 +318,15 @@ verbch23 <- ch23 %>%
   filter(upos == "VERB") %>%
   mutate(new_col = "ch23")
 
-verbcombined <- rbind(verbch1, verbch11, verbch23)
+verbcombined <- rbind(verbch1, verbch11, verbch23) %>%
+  rename(chapters = new_col) %>%
+  select(upos, chapters)
+  #as.integer(upos)#%>%
+  pivot_wider(names_from = chapters, values_from = chapters)
 
 verbcombined %>%
-  count(upos) %>%
+  #summarise_at(group_by(chapters), vars(upos), funs(mean(.,na.rm = TRUE))) #%>%
+  #count(upos) %>%
   ggplot(aes(n, upos)) +
   geom_col()
 
