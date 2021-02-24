@@ -155,7 +155,10 @@ ch1 %>%
   count(upos) %>% 
   filter(upos != ".") %>% 
   ggplot(aes(n, upos)) +
-  geom_col()
+  geom_col()+
+  labs(x = "Quantity",
+       y = "Parts of Speech")
+
 
 lapply(annotate_ch1, head)
 
@@ -245,7 +248,10 @@ ch11 %>%
   count(upos) %>% 
   filter(upos != ".") %>% 
   ggplot(aes(n, upos)) +
-  geom_col()
+  geom_col()+
+  labs(x = "Quantity",
+       y = "Parts of Speech")
+
 
 lapply(annotate_ch11, head)
 
@@ -297,7 +303,9 @@ ch23 %>%
   count(upos) %>% 
   filter(upos != ".") %>% 
   ggplot(aes(n, upos)) +
-  geom_col()
+  geom_col() +
+  labs(x = "Quantity",
+       y = "Parts of Speech")
 
 lapply(annotate_ch23, head)
 
@@ -321,13 +329,15 @@ verbch23 <- ch23 %>%
 verbcombined <- rbind(verbch1, verbch11, verbch23) %>%
   rename(chapters = new_col) %>%
   select(upos, chapters)
-  #as.integer(upos)#%>%
-  pivot_wider(names_from = chapters, values_from = chapters)
-
-verbcombined %>%
-  #summarise_at(group_by(chapters), vars(upos), funs(mean(.,na.rm = TRUE))) #%>%
-  #count(upos) %>%
-  ggplot(aes(n, upos)) +
-  geom_col()
+  
+verbcombined %>% 
+  count(chapters) %>% 
+  ggplot(aes(n, chapters)) +
+  geom_col() +
+  scale_y_discrete(breaks = paste0("ch", c("1", "11", "23")),
+                   labels = c("1", "11", "23")) +
+  labs(x = "Number of verbs",
+       y = "Chapter")
 
 ```
+The above graph displays the amount of verbs present in chapters 1, 11, and 23. There is a downward trend in the amount of verbs as you move through the book. 
