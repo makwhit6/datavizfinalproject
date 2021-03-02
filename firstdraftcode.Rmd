@@ -3,6 +3,8 @@ title: "Final Project"
 author: "Makayla Whitney"
 date: "2/1/2021"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -11,9 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(reticulate)
-py_install("cleannlp")
-system("pip install cleannlp")
-cnlp_init_spacy(model_name = "en")
+#py_install("cleannlp")
+#system("pip install cleannlp")
+#cnlp_init_spacy(model_name = "en")
+
+#These weren't working for me?? not sure what they are supposed to be doing but i was able to run the rest of the code installing cleannlp from r and not python
 ```
 
 ```{r code_setup}
@@ -149,6 +153,7 @@ annotate_ch1 <- cnlp_annotate(input = c("It was almost December, and Jonas was b
                                         "Lily sighed, but obediently she got down from her chair. \"Privately?\" she asked.",
                                         "Mother nodded. \"Yes,\" she said, \"this talk will be a private one with Jonas.\"" ))
 
+#Is there any way to read this in from a csv file/ note? Might make your code easier to read
 
 ```
 
@@ -162,16 +167,24 @@ ch1 %>%
   filter(upos != ".") %>% 
   ggplot(aes(n, upos)) +
   geom_col()+
-  labs(x = "Quantity",
-       y = "Parts of Speech")
+  labs(x = "", # If this is just a count, you could probably omit it (and omit the y label too) and instead add a nice title to explain what is going on
+       y = "",
+       title = "Parts of speech in chapter 1 of the Giver")
 
+# This type of analysis is so cool!! I've never done any text analysis so I'm learning a lot. I had never even heard of the cleanNLP package before but will definitely use it in the future
+
+#I think it would be especially helpful here to label the parts of speech and sort by length of the bar. I would also suggest getting rid of what I assume is punctuation because that's not a really meaningful category and it's the biggest bar... same with "X" and any other less meaningful category
+
+# For a final plot I can see you highlighting a few bars that are really meaningful, or even using gganimate to see the bars change from chapter to chapter, i.e., you would be able to see if there are more nouns in the beginning of the book than the end... I think it would look cool if you used % of words instead of n because it would be cool to see "wow pronouns are 12% of the words" like you are showing in the table below (it would also make comparisons across chapters more meaningful)
 
 lapply(annotate_ch1, head)
 
 #attempting to summarize the percentages of parts of speech present
 ch1 %>% 
   select(lemma, upos) %>%
-  tbl_summary(ch1)
+  tbl_summary()
+
+# This wasn't working for me until I took out the ch1 in tbl_summary(ch1)
 
 ```
 The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
@@ -263,6 +276,7 @@ ch11 %>%
 
 lapply(annotate_ch11, head)
 
+# Again, really like the sideways bar chart for showing this relationship. Also nice job using "count" instead of group by and summary... I like that hack for shortening the code! One other thing I might add to these for a final draft is to label them with the n or % of words so that you can really easily compare
 ```
 The above bar chart displays a count of each part of speech within Chapter 11 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
 
@@ -350,6 +364,10 @@ verbcombined %>%
                    labels = c("1", "11", "23")) +
   labs(x = "Number of verbs",
        y = "Chapter")
+
+# Interesting finding!! Do you think this could be because  some chapters are longer than others (see my % of words comment from earlier), or this is a meaningful trend? I would love to see in your final version an explanation for why you chose these chapters to look at (i'm assuming beg, middle, and end)/ why you chose verbs to look at. If you want to use gganimate like I suggested, you could put these three plots one after the other and highlight the "verb" bar a color like red. That way you can see how verbs change across chapters in the context of other parts of speech, e.g., you might find that verbs change a much smaller or much larger amount than other parts of speech across chapters
+
+# This graph is extremely effective at demonstrating this effect. I immediately understood what was going on without even needing a title. Beyond what you have here, I think it would be really cool to look specifically at what verbs are most common in the giver. You could present that data in a word cloud, which makes more prevalent words bigger. Since you're interested in change across the book, you could even look at how the verbs change in prevalence across the book 
 
 ```
 The above graph displays the amount of verbs present in chapters 1, 11, and 23. There is a downward trend in the amount of verbs as you move through the book. 
