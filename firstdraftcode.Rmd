@@ -3,6 +3,8 @@ title: "Final Project"
 author: "Makayla Whitney"
 date: "2/1/2021"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -175,6 +177,9 @@ ch1 %>%
 
 ```
 The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
+
+*I'm having an issue when running this code; it seems that it wants me to choose a by= that's either lemma or upos, and I'm not familiar enough with NLP in python to make this decsion...*
+*That being said, pivoting to horizontal was a great choice for this visualization, and I see that you're planning on adding color, which will definitely help clarify for a reader!*
 
 
 ##Chapter 11
@@ -353,3 +358,7 @@ verbcombined %>%
 
 ```
 The above graph displays the amount of verbs present in chapters 1, 11, and 23. There is a downward trend in the amount of verbs as you move through the book. 
+
+*I really love this figure! It raises so many questions! I think the use of bar plots was particularly effective here. I'm curious about the possibilities of adding an additional variable to this figure - something like "complexity" or a different metric that shows whether the verbs change in quality as well as quantity over the course of the book. Also, I wonder whether this is impacted by a change in length (i.e., is chapter 1 super long?). That may be a fun aspect to play with in a future draft (or just with this data set)*
+
+*I think you picked great forms for the data you picked, and did a really good job navigating complex data - NLP is tough stuff! I haven't poked around NLP done in R before, so definitely learned a lot examining your code!*
