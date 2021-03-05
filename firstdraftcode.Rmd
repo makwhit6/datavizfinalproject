@@ -242,11 +242,7 @@ ch1 %>%
 
 
 ```
-The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
-
-*I'm having an issue when running this code; it seems that it wants me to choose a by= that's either lemma or upos, and I'm not familiar enough with NLP in python to make this decsion...*
-*That being said, pivoting to horizontal was a great choice for this visualization, and I see that you're planning on adding color, which will definitely help clarify for a reader!*
-
+The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. 
 
 ##Chapter 11
 ```{r ch11}
@@ -323,6 +319,7 @@ annotate_ch11 <- cnlp_annotate(input = c("Jonas felt nothing unusual at first. H
 
 ch11 <- annotate_ch11$token
 
+#version 1
 ch11 %>% 
   count(upos) %>% 
   filter(upos != ".") %>% 
@@ -331,10 +328,68 @@ ch11 %>%
   labs(x = "Quantity",
        y = "Parts of Speech")
 
+#version 2
+ch11 %>% 
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) %>%
+  mutate(upos = fct_reorder(upos, n)) %>%
+  ggplot(aes(n, upos)) +
+  geom_col()+
+  labs(x = "Number of Occurances",
+       y = "",
+       title = "Parts of Speech Present in Chapter 11 of The Giver",
+       subtitle = "Displays comparison of parts of speech throughout the chapter")
+
+#version 3 (final version)
+ch11 %>% 
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) %>%
+  mutate(upos = fct_reorder(upos, n)) %>%
+  ggplot(aes(n, upos)) +
+  geom_col() +
+  labs(x = "Number of Occurances",
+       y = "",
+       title = "Parts of Speech Present in Chapter 11 of The Giver",
+       subtitle = "Displays comparison of parts of speech throughout the chapter") +
+  theme_minimal()
 
 lapply(annotate_ch11, head)
 
-# Again, really like the sideways bar chart for showing this relationship. Also nice job using "count" instead of group by and summary... I like that hack for shortening the code! One other thing I might add to these for a final draft is to label them with the n or % of words so that you can really easily compare
+
 ```
 The above bar chart displays a count of each part of speech within Chapter 11 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
 
@@ -381,6 +436,7 @@ annotate_ch23 <- cnlp_annotate(input = c("Jonas felt more and more certain that 
 
 ch23 <- annotate_ch23$token
 
+#version 1
 ch23 %>% 
   count(upos) %>% 
   filter(upos != ".") %>% 
@@ -388,6 +444,65 @@ ch23 %>%
   geom_col() +
   labs(x = "Quantity",
        y = "Parts of Speech")
+
+#version 2
+ch23 %>% 
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) %>%
+  mutate(upos = fct_reorder(upos, n)) %>%
+  ggplot(aes(n, upos)) +
+  geom_col()+
+  labs(x = "Number of Occurances",
+       y = "",
+       title = "Parts of Speech Present in Chapter 23 of The Giver",
+       subtitle = "Displays comparison of parts of speech throughout the chapter")
+
+#version 3 (final version)
+ch23 %>% 
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) %>%
+  mutate(upos = fct_reorder(upos, n)) %>%
+  ggplot(aes(n, upos)) +
+  geom_col() +
+  labs(x = "Number of Occurances",
+       y = "",
+       title = "Parts of Speech Present in Chapter 23 of The Giver",
+       subtitle = "Displays comparison of parts of speech throughout the chapter") +
+  theme_minimal()
 
 lapply(annotate_ch23, head)
 
@@ -413,9 +528,23 @@ verbch23 <- ch23 %>%
 verbcombined <- rbind(verbch1, verbch11, verbch23) %>%
   rename(chapters = new_col) %>%
   select(upos, chapters)
-  
+
+#version 1
 verbcombined %>% 
   count(chapters) %>% 
+  ggplot(aes(n, chapters)) +
+  geom_col() +
+  scale_y_discrete(breaks = paste0("ch", c("1", "11", "23")),
+                   labels = c("1", "11", "23")) +
+  labs(x = "Number of verbs",
+       y = "Chapter")
+
+#version 2
+verbcombined %>% 
+  count(chapters) %>% 
+  #mutate(chapters = fct_relevel(chapters, 
+                                "1",
+                                "11")) %>%
   ggplot(aes(n, chapters)) +
   geom_col() +
   scale_y_discrete(breaks = paste0("ch", c("1", "11", "23")),
