@@ -30,7 +30,9 @@ library(tidyr)
 library(gtsummary)
 library(magrittr)
 library(ggplot2)
+library(forcats)
 cnlp_init_udpipe()
+
 
 ```
 
@@ -162,29 +164,82 @@ annotate_ch1 <- cnlp_annotate(input = c("It was almost December, and Jonas was b
 
 ch1 <- annotate_ch1$token
 
+#version 1
 ch1 %>% 
   count(upos) %>% 
-  filter(upos != ".") %>% 
+  filter(upos != ".") %>%
   ggplot(aes(n, upos)) +
   geom_col()+
-  labs(x = "", # If this is just a count, you could probably omit it (and omit the y label too) and instead add a nice title to explain what is going on
+  labs(x = "",
        y = "",
-       title = "Parts of speech in chapter 1 of the Giver")
+       title = "Parts of Speech")
 
-# This type of analysis is so cool!! I've never done any text analysis so I'm learning a lot. I had never even heard of the cleanNLP package before but will definitely use it in the future
+#version 2
+ch1 %>% 
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) %>%
+  mutate(upos = fct_reorder(upos, n)) %>%
+  ggplot(aes(n, upos)) +
+  geom_col()+
+  labs(x = "Number of Occurances",
+       y = "",
+       title = "Parts of Speech Present in Chapter 1 of The Giver",
+       subtitle = "Displays comparison of parts of speech throughout the chapter")
 
-#I think it would be especially helpful here to label the parts of speech and sort by length of the bar. I would also suggest getting rid of what I assume is punctuation because that's not a really meaningful category and it's the biggest bar... same with "X" and any other less meaningful category
-
-# For a final plot I can see you highlighting a few bars that are really meaningful, or even using gganimate to see the bars change from chapter to chapter, i.e., you would be able to see if there are more nouns in the beginning of the book than the end... I think it would look cool if you used % of words instead of n because it would be cool to see "wow pronouns are 12% of the words" like you are showing in the table below (it would also make comparisons across chapters more meaningful)
+#version 3 (final version)
+ch1 %>% 
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) %>%
+  mutate(upos = fct_reorder(upos, n)) %>%
+  ggplot(aes(n, upos)) +
+  geom_col() +
+  labs(x = "Number of Occurances",
+       y = "",
+       title = "Parts of Speech Present in Chapter 1 of The Giver",
+       subtitle = "Displays comparison of parts of speech throughout the chapter") +
+  theme_minimal()
 
 lapply(annotate_ch1, head)
 
-#attempting to summarize the percentages of parts of speech present
+#summarize the percentages of parts of speech present in ch1 
 ch1 %>% 
-  select(lemma, upos) %>%
+  select(upos) %>%
   tbl_summary()
 
-# This wasn't working for me until I took out the ch1 in tbl_summary(ch1)
 
 ```
 The above bar chart displays a count of each part of speech within Chapter 1 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
