@@ -7,8 +7,8 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r}
@@ -70,7 +70,7 @@ cat("This is a normal string in R",
 
 ##Chapter 1
 
-```{r ch1}
+```{r ch1, echo = TRUE}
 annotate_ch1 <- cnlp_annotate(input = c("It was almost December, and Jonas was beginning to be frightened.",
                                         "No. Wrong word, Jonas thought.",
                                         "Frightened meant that deep, sickening feeling of something terrible about to happen.",
@@ -227,7 +227,8 @@ ch1 %>%
        y = "",
        title = "Parts of Speech Present in Chapter 1 of The Giver",
        subtitle = "Displays comparison of parts of speech throughout the chapter") +
-  theme_minimal()
+  theme_minimal() +
+  scale_fill_viridis_c(option = "magma")
 
 lapply(annotate_ch1, head)
 
@@ -263,7 +264,7 @@ annotate_ch2 <- cnlp_annotate(input = c("Jonas watched as his father poured a fr
                                         "His father continued. \"So I watched and cheered when my sister, Katya, became a Nine and removed her hair ribbons and got her bicycle,\" Father went on. \"Then I didn't pay much attention to the Tens and Elevens. And finally, at the end of the second day, which seemed to go on forever, it was my turn. It was the Ceremony of Twelve.\"",
                                         "Jonas shivered. He pictured his father, who must have been a shy and quiet boy, for he was a shy and quiet man, seated with his group, waiting to be called to the stage. The Ceremony of Twelve was the last of the Ceremonies. The most important.",
                                         "I remember how proud my parents looked--and my sister, too; even though she wanted to be out riding the bicycle publicly, she stopped fidgeting and was very still and attentive when my turn came.",
-                                        "\But to be honest, Jonas,\" his father said, \"for me there was not the element of suspense that there is with your Ceremony. Because I was already fairly certain of what my Assignment was to be.\"",
+                                        "\"But to be honest, Jonas,\" his father said, \"for me there was not the element of suspense that there is with your Ceremony. Because I was already fairly certain of what my Assignment was to be.\"",
                                         "Jonas was surprised. There was no way, really, to know in advance. It was a secret selection, made by the leaders of the community, the Committee of Elders, who took the responsibility so seriously that there were never even any jokes made about Assignments.",
                                         "His mother seemed surprised, too. \"How could you have known?\" she asked.",
                                         "His father smiled his gentle smile. \"Well, it was clear to me--and my parents later confessed that it had been obvious to them, too--what my aptitude was. I had always loved the newchildren more than anything. When my friends in my age group were holding bicycle races, or building toy vehicles or bridges with their construction sets, or--\"",
@@ -516,9 +517,9 @@ annotate_ch7 <- cnlp_annotate(input = c("Now Jonas's group had taken a new place
                                         "Three, Isaac, was given an Assignment as Instructor of Sixes, which obviously pleased him and was well deserved. Now there were three Assignments gone, none of them ones that Jonas would have liked not that he could have been a Birthmother, anyway, he realized with amusement. He tried to sort through the list in his mind, the possible Assignments that remained. But there were so many he gave it up; and anyway, now it was Asher's turn. He paid strict attention as his friend went to the stage and stood self- consciously beside the Chief Elder.",
                                         "\"All of us in the community know and enjoy Asher,\" the Chief Elder began. Asher grinned and scratched one leg with the other foot. The audience chuckled softly.",
                                         "\"When the committee began to consider Asher's Assignment,\" she went on, \"there were some possibilities that were immediately discarded. Some that would clearly not have been right for Asher.\"",
-                                          "\For example,\" she said, smiling, \"we did not consider for an instant designating Asher an Instructor of Threes.\"",
+                                          "\"For example,\" she said, smiling, \"we did not consider for an instant designating Asher an Instructor of Threes.\"",
                                         "The audience howled with laughter. Asher laughed, too, looking sheepish but pleased at the special attention. The Instructors of Threes were in charge of the acquisition of correct language.",
-                                        "\In fact,\" the Chief Elder continued, chuckling a little herself, \"we even gave a little thought to some retroactive chastisement for the one who had been Asher's Instructor of Threes so long ago. At the meeting where Asher was discussed, we retold many of the stories that we all remembered from his days of language acquisition.\"",
+                                        "\"In fact,\" the Chief Elder continued, chuckling a little herself, \"we even gave a little thought to some retroactive chastisement for the one who had been Asher's Instructor of Threes so long ago. At the meeting where Asher was discussed, we retold many of the stories that we all remembered from his days of language acquisition.\"",
                                         "\"Especially,\" she said, chuckling, \"the difference between snack and smack. Remember, Asher?\"",
                                         "Asher nodded ruefully, and the audience laughed aloud. Jonas did, too. He remembered, though he had been only a Three at the time himself.",
                                         "The punishment used for small children was a regulated system of smacks with the discipline wand: a thin, flexible weapon that stung painfully when it was wielded. The Childcare specialists were trained very carefully in the discipline methods: a quick smack across the hands for a bit of minor misbehavior; three sharper smacks on the bare legs for a second offense.",
@@ -623,8 +624,8 @@ annotate_ch9 <- cnlp_annotate(input = c("Now, for the first time in his twelve y
                                          "\"See you in the morning, Recreation Director!\" he called, dismounting by his door as Asher continued on.",
                                          "\"Right! See you!\" Asher called back. Once again, there was just a moment when things weren't quite the same, weren't quite as they had always been through the long friendship. Perhaps he had imagined it. Things couldn't change, with Asher.",
                                          "The evening meal was quieter than usual. Lily chattered about her plans for volunteer work; she would begin, she said, at the Nurturing Center, since she was already an expert at feeding Gabriel.",
-                                         "\I know,\" she added quickly, when her father gave her a warning glance, \"I won't mention his name. I know I'm not supposed to know his name.\"",
-                                         "\I can't wait for tomorrow to come,\" she said happily.",
+                                         "\"I know,\" she added quickly, when her father gave her a warning glance, \"I won't mention his name. I know I'm not supposed to know his name.\"",
+                                         "\"I can't wait for tomorrow to come,\" she said happily.",
                                          "Jonas sighed uneasily. \"I can,\" he muttered.",
                                          "\"You've been greatly honored,\" his mother said. \"Your father and I are very proud.\"",
                                          "\"It's the most important job in the community,\" Father said.",
@@ -717,7 +718,7 @@ annotate_ch10 <- cnlp_annotate(input = c("\"I go in here, Jonas,\" Fiona told hi
                                          "\"So I may neglect to make things as clear as I should.\" The man chuckled. \"My job is important and has enormous honor. But that does not mean I am perfect, and when I tried before to train a successor, I failed. Please ask any questions that will help you.\"",
                                          "In his mind, Jonas had questions. A thousand. A million questions. As many questions as there were books lining the walls. But he did not ask one, not yet.",
                                          "The man sighed, seeming to put his thoughts in order. Then he spoke again. \"Simply stated,\" he said, \"although it's not really simple at all, my job is to transmit to you all the memories I have within me. Memories of the past.\"",
-                                         "\"Sir,\" Jonas said tentatively, \"I would be very interested to hear the story of your life, and to listen to your memories.\”",
+                                         "\"Sir,\" Jonas said tentatively, \"I would be very interested to hear the story of your life, and to listen to your memories.\"",
                                          "\"I apologize for interrupting,\" he added quickly.",
                                          "The man waved his hand impatiently. \"No apologies in this room. We haven't time.\"",
                                          "\"Well,\" Jonas went on, uncomfortably aware that he might be interrupting again, \"I am really interested, I don't mean that I'm not. But I don't exactly understand why it's so important. I could do some adult job in the community, and in my recreation time I could come and listen to the stories from your childhood. I'd like that. Actually,\" he added, \"I've done that already, in the House of the Old. The Old like to tell about their childhoods, and it's always fun to listen.\"",
@@ -900,7 +901,7 @@ The above bar chart displays a count of each part of speech within Chapter 11 of
 annotate_ch12 <- cnlp_annotate(input = c("\"You slept soundly, Jonas?\" his mother asked at the morning meal. \"No dreams?\"",
                                          "Jonas simply smiled and nodded, not ready to lie, not willing to tell the truth. \"I slept very soundly,\" he said.",
                                          "\"I wish this one would,\" his father said, leaning down from his chair to touch Gabriel's waving fist. The basket was on the floor beside him; in its corner, beside Gabriel's head, the smiled hippo sat staring with its blank eyes.",
-                                         "\So do I,\" Mother said, rolling her eyes. \"He's so fretful at night.\"",
+                                         "\"So do I,\" Mother said, rolling her eyes. \"He's so fretful at night.\"",
                                          "Jonas had not heard the newchild during the night because as always, he had slept soundly. But it was not true that he had no dreams.",
                                          "Again and again, as he slept, he had slid down that snow-covered hill. Always, in the dream, it seemed as if there were a destination: a something-- he could not grasp what--that lay beyond the place where the thickness of snow brought the sled to a stop.",
                                          "He was left, upon awakening, with the feeling that he wanted, even somehow needed, to reach the something that waited in the distance. The feeling that it was good. That it was welcoming. That it was significant.",
@@ -1032,7 +1033,7 @@ annotate_ch13 <- cnlp_annotate(input = c("Days went by, and weeks. Jonas learned
                                          "\"'Ccept your apology,\" Lily responded indifferently, stroking the lifeless elephant.",
                                          "|Giver,\" Jonas asked once, as they prepared for the day's work, \"don't you have a spouse? Aren't you allowed to apply for one?\" Although he was exempted from the rules against rudeness, he was aware that this was a rude question. But The Giver had encouraged all of his questions, not seeming to be embarrassed or offended by even the most personal.",
                                          "The Giver chuckled. \"No, there's no rule against it. And I did have a spouse. You're forgetting how old I am, Jonas. My former spouse lives now with the Childless Adults.\"",
-                                         "\Oh, of course.\" Jonas had forgotten The Giver's obvious age. When adults of the community became older, their lives became different. They were no longer needed to create family units. Jonas's own parents, when he and Lily were grown, would go to live with the Childless Adults.",
+                                         "\"Oh, of course.\" Jonas had forgotten The Giver's obvious age. When adults of the community became older, their lives became different. They were no longer needed to create family units. Jonas's own parents, when he and Lily were grown, would go to live with the Childless Adults.",
                                          "\"You'll be able to apply for a spouse, Jonas, if you want to. I'll warn you, though, that it will be difficult. Your living arrangements will have to be different from those of most family units, because the books are forbidden to citizens. You and I are the only ones with access to the books.\"",
                                          "Jonas glanced around at the astonishing array of volumes. From time to time, now, he could see their colors. With their hours together, his and The Giver's, consumed by conversation and by the transmission of memories, Jonas had not yet opened any of the books. But he read the titles here and there, and knew that they contained all of the knowledge of centuries, and that one day they would belong to him.",
                                          "\"So if I have a spouse, and maybe children, I will have to hide the books from them?\"",
@@ -1396,7 +1397,261 @@ annotate_ch18 <- cnlp_annotate(input = c("\"Giver,\" Jonas asked the next aftern
 
 ```
 
+##Chapter 19
+```{r ch19}
+annotate_ch19 <- cnlp_annotate(input = c("Jonas glanced at the clock. There was so much work to be done, always, that he and The Giver seldom simply sat and talked, the way they just had.",
+                                         "\"I'm sorry that I wasted so much time with my questions,\" Jonas said. \"I was only asking about release because my father is releasing a newchild today. A twin. He has to select one and release the other one. They do it by weight.\" Jonas glanced at the clock. \"Actually, I suppose he's already finished. I think it was this morning.\"",
+                                         "The Giver's face took on a solemn look. \"I wish they wouldn't do that,\" he said quietly, almost to himself.",
+                                         "\"Well, they can't have two identical people around! Think how confusing it would be!\" Jonas chuckled.",
+                                         "\"I wish I could watch,\" he added, as an afterthought. He liked the thought of seeing his father perform the ceremony, and making the little twin clean and comfy. His father was such a gentle man.",
+                                         "\"You can watch,\" The Giver said.",
+                                         "\"No,\" Jonas told him. \"They never let children watch. It's very private.\"",
+                                         "\"Jonas,\" The Giver told him, \"I know that you read your training instructions very carefully. Don't you remember that you are allowed to ask anyone anything?\"",
+                                         "Jonas nodded. \"Yes, but-- \"",
+                                         "\"Jonas, when you and I have finished our time together, you will be the new Receiver. You can read the books; you'll have the memories. You have access to everything. It's part of your training. If you want to watch a release, you have simply to ask.\"",
+                                         "Jonas shrugged. \"Well, maybe I will, then. But it's too late for this one. I'm sure it was this morning.\"",
+                                         "The Giver told him, then, something he had not known. \"All private ceremonies are recorded. They're in the Hall of Closed Records.
+Do you want to see this morning's release?\"",
+                                          "Jonas hesitated. He was afraid that his father wouldn't like it, if he watched something so private.",
+                                          "\"I think you should,\" The Giver told him firmly.",
+                                          "\"All right, then,\" Jonas said. \"Tell me how.\"",
+                                          "The Giver rose from his chair, went to the speaker on the wall, and clicked the switch from OFF to ON.",
+                                          "The voice spoke immediately. \"Yes, Receiver. How may I help you?\"",
+                                          "\"I would like to see this morning's release of the twin.\"",
+                                          "\"One moment, Receiver. Thank you for your instructions.\"",
+                                          "Jonas watched the video screen above the row of switches. Its blank face began to flicker with zig-zag lines; then some numbers appeared, followed by the date and time. He was astonished and delighted that this was available to him, and surprised that he had not known.",
+                                          "Suddenly he could see a small windowless room, empty except for a bed, a table with some equipment on it--Jonas recognized a scale; he had seen them before, when he'd been doing volunteer hours at the Nurturing Center--and a cupboard. He could see pale carpeting on the floor.",
+                                          "\"It's just an ordinary room,\" he commented. \"I thought maybe they'd have it in the Auditorium, so that everybody could come. All the Old go to Ceremonies of Release. But I suppose that when it's just a newborn, they don't--\"",
+                                          "\"Shhh,\" The Giver said, his eyes on the screen. Jonas's father, wearing his nurturing uniform, entered the room, cradling a tiny newchild wrapped in a soft blanket in his arms. A uniformed woman followed through the door, carrying a second newchild wrapped in a similar blanket.",
+                                          "\"That's my father.\" Jonas found himself whispering, as if he might wake the little ones if he spoke aloud. \"And the other Nurturer is his assistant. She's still in training, but she'll be finished soon.\"",
+                                          "The two Nurturers unwrapped the blankets and laid the identical newborns on the bed. They were naked. Jonas could see that they were males.",
+                                          "He watched, fascinated, as his father gently lifted one and then the other to the scale and weighed them.",
+                                          "He heard his father laugh. \"Good,\" his father said to the woman. \"I thought for a moment that they might both be exactly the same.
+Then we'd have a problem. But this one,\" he handed one, after rewrapping it, to his assistant, \"is six pounds even. So you can clean him up and dress him and take him over to the Center.\"",
+                                          "The woman took the newchild and left through the door she had entered.",
+                                          "Jonas watched as his father bent over the squirming newchild on the bed. \"And you, little guy, you're only five pounds ten ounces. A shrimp!\"",
+                                          "\"That's the special voice he uses with Gabriel,\" Jonas remarked, smiling.",
+                                          "\"Watch,\" The Giver said.",
+                                          "\"Now he cleans him up and makes him comfy,\" Jonas told him. \"He told me.\"",
+                                          "\"Be quiet, Jonas,\" The Giver commanded in a strange voice. \"Watch.\"",
+                                          "Obediently Jonas concentrated on the screen, waiting for what would happen next. He was especially curious about the ceremony part.",
+                                          "His father turned and opened the cupboard. He took out a syringe and a small bottle. Very carefully he inserted the needle into the bottle and began to fill the syringe with a clear liquid.",
+                                          "Jonas winced sympathetically. He had forgotten that newchildren had to get shots. He hated shots himself, though he knew that they were necessary.",
+                                          "To his surprise, his father began very carefully to direct the needle into the top of newchild's forehead, puncturing the place where the fragile skin pulsed. The newborn squirmed, and wailed faintly.",
+                                          "\"Why's he--\"",
+                                          "\"Shhh,\" The Giver said sharply.",
+                                          "His father was talking, and Jonas realized that he was hearing the answer to the question he had started to ask. Still in the special voice, his father was saying, \"I know, I know. It hurts, little guy. But I have to use a vein, and the veins in your arms are still too teeny- weeny.\"",
+                                          "He pushed the plunger very slowly, injecting the liquid into the scalp vein until the syringe was empty.",
+                                          "\"All done. That wasn't so bad, was it?\" Jonas heard his father say cheerfully. He turned aside and dropped the syringe into a waste receptacle.",
+                                          "Now he cleans him up and makes him comfy, Jonas said to himself, aware that The Giver didn't want to talk during the little ceremony.",
+                                          "As he continued to watch, the newchild, no longer crying, moved his arms and legs in a jerking motion. Then he went limp. He head fell to the side, his eyes half open. Then he was still.",
+                                          "With an odd, shocked feeling, Jonas recognized the gestures and posture and expression. They were familiar. He had seen them before. But he couldn't remember where.",
+                                          "Jonas stared at the screen, waiting for something to happen. But nothing did. The little twin lay motionless. His father was putting things away. Folding the blanket. Closing the cupboard.",
+                                          "Once again, as he had on the playing field, he felt the choking sensation. Once again he saw the face of the light-haired, bloodied soldier as life left his eyes. The memory came back.",
+                                          "He killed it! My father killed it! Jonas said to himself, stunned at what he was realizing. He continued to stare at the screen numbly.",
+                                          "His father tidied the room. Then he picked up a small carton that lay waiting on the floor, set it on the bed, and lifted the limp body into it. He placed the lid on tightly.",
+                                          "He picked up the carton and carried it to the other side of the room. He opened a small door in the wall; Jonas could see darkness behind the door. It seemed to be the same sort of chute into which trash was deposited at school.",
+                                          "His father loaded the carton containing the body into the chute and gave it a shove.",
+                                          "\"Bye-bye, little guy,\" Jonas heard his father say before he left the room. Then the screen went blank.",
+                                          "The Giver turned to him. Quite calmly, he related, \"When the Speaker notified me that Rosemary had applied for release, they turned on the tape to show me the process. There she was--my last glimpse of that beautiful child--waiting. They brought in the syringe and asked her to roll up her sleeve.\"",
+                                          "\"You suggested, Jonas, that perhaps she wasn't brave enough? I don't know about bravery: what it is, what it means. I do know that I sat here numb with horror. Wretched with helplessness. And I listened as Rosemary told them that she would prefer to inject herself.\"",
+                                          "\"Then she did so. I didn't watch. I looked away.\" The Giver turned to him. \"Well, there you are, Jonas. You were wondering about release,\" he said in a bitter voice.",
+                                          "Jonas felt a ripping sensation inside himself, the feeling of terrible pain clawing its way forward to emerge in a cry."))
 
+```
+
+##Chapter 20
+```{r ch20}
+annotate_ch20 <- cnlp_annotate(input = c("\"I won't! I won't go home! You can't make me!\" Jonas sobbed and shouted and pounded the bed with his fists.",
+                                         "\"Sit up, Jonas,\" The Giver told him firmly.",
+                                         "Jonas obeyed him. Weeping, shuddering, he sat on the edge of the bed. He would not look at The Giver.",
+                                         "\"You may stay here tonight. I want to talk to you. But you must be quiet now, while I notify your family unit. No one must hear you cry.\"",
+                                         "Jonas looked up wildly. \"No one heard that little twin cry, either! No one but my father!\" He collapsed in sobs again.",
+                                         "The Giver waited silently. Finally Jonas was able to quiet himself and he sat huddled, his shoulders shaking.",
+                                         "The Giver went to the wall speaker and clicked the switch to ON.",
+                                         "\"Yes, Receiver. How may I help you?\"",
+                                         "\"Notify the new Receiver's family unit that he will be staying with me tonight, for additional training.\"",
+                                         "\"I will take care of that, sir. Thank you for your instructions,\" the voice said.",
+                                         "\"I will take care of that, sir. I will take care of that, sir,\" Jonas mimicked in a cruel, sarcastic voice. \"I will do whatever you like, sir. I will kill people, sir. Old people? Small newborn people? I'd be happy to kill them, sir. Thank you for your instructions, sir. How may I help y--\", He couldn't seem to stop.",
+                                         "The Giver grasped his shoulders firmly. Jonas fell silent and stared at him.",
+                                         "\"Listen to me, Jonas. They can't help it. They know nothing.\"",
+                                         "\"You said that to me once before.\"",
+                                         "\"I said it because it's true. It's the way they live. It's the life that was created for them. It's the same life that you would have, if you had not been chosen as my successor.\" \"But he lied to me!\" Jonas wept.",
+                                         "\"It's what he was told to do, and he knows nothing else.\"",
+                                         "\"What about you? Do you lie to me, too?\" Jonas almost spat the question at The Giver.",
+                                         "\"I am empowered to lie. But I have never lied to you.\"",
+                                         "Jonas stared at him. \"Release is always like that? For people who break the rules three times? For the Old? Do they kill the Old, too?\" \"Yes, it's true.\"",
+                                         "\"And what about Fiona? She loves the Old! She's in training to care for them. Does she know yet? What will she do when she finds out? How will she feel?\" Jonas brushed wetness from his face with the back of one hand.",
+                                         "\"Fiona is already being trained in the fine art of release,\" The Giver told him. \"She's very efficient at her work, your red-haired friend.
+Feelings are not part of the life she's learned.\"",
+                                          "Jonas wrapped his arms around himself and rocked his own body back and forth. \"What should I do? I can't go back! I can't!\"",
+                                          "The Giver stood up. \"First, I will order our evening meal. Then we will eat.\"",
+                                          "Jonas found himself using the nasty, sarcastic voice again. \"Then we'll have a sharing of feelings?\"",
+                                          "The Giver gave a rueful, anguished, empty laugh. \"Jonas, you and I are the only ones who have feelings. We've been sharing them now for almost a year.\"",
+                                          "\"I'm sorry, Giver,\" Jonas said miserably. \"I don't mean to be so hateful. Not to you.\"",
+                                          "The Giver rubbed Jonas's hunched shoulders. \"And after we eat,\" he went on, \"we'll make a plan.\"",
+                                          "Jonas looked up, puzzled. \"A plan for what? There's nothing. There's nothing we can do. It's always been this way. Before me, before you, before the ones who came before you. Back and back and back.\" His voice trailed the familiar phrase.",
+                                          "\"Jonas,\" The Giver said, after a moment, \"it's true that it has been this way for what seems forever. But the memories tell us that it has not always been. People felt things once. You and I have been part of that, so we know. We know that they once felt things like pride, and sorrow, and--\"",
+                                          "\"And love,\" Jonas added, remembering the family scene that had so affected him. \"And pain.\" He thought again of the soldier.",
+                                          "\"The worst part of holding the memories is not the pain. It's the loneliness of it. Memories need to be shared.\"",
+                                          "\"I've started to share them with you,\" Jonas said, trying to cheer him.",
+                                          "\"That's true. And having you here with me over the past year has made me realize that things must change. For years I've felt that they should, but it seemed so hopeless.\"",
+                                          "\"Now for the first time I think there might be a way,\" The Giver said slowly. \"And you brought it to my attention, barely-- \" He glanced at the dock. \"two hours ago.\"",
+                                          "Jonas watched him, and listened.",
+                                          "It was late at night, now. They had talked and talked. Jonas sat wrapped in a robe belonging to The Giver, the long robe that only Elders wore.",
+                                          "It was possible, what they had planned. Barely possible. If it failed, he would very likely be killed.",
+                                          "But what did that matter? If he stayed, his life was no longer worth living.",
+                                          "\"Yes,\" he told The Giver. \"I'll do it. I think I can do it. I'll try, anyway. But I want you to come with me.\"",
+                                          "The Giver shook his head. \"Jonas,\" he said, \"the community has depended, all these generations, back and back and back, on a resident Receiver to hold their memories for them. I've turned over many of them to you in the past year. And I can't take them back. There's no way for me to get them back if I have given them.\"",
+                                          "\"So if you escape, once you are gone--and, Jonas, you know that you can never return--\"",
+                                          "Jonas nodded solemnly. It was the terrifying part. \"Yes,\" he said, \"I know. But if you come with me--\"",
+                                          "The Giver shook his head and made a gesture to silence him. He continued. \"If you get away, if you get beyond, if you get to Elsewhere, it will mean that the community has to bear the burden themselves, of the memories you had been holding for them.\"",
+                                          "\"I think that they can, and that they will acquire some wisdom. But it will be desperately hard for them. When we lost Rosemary ten years ago, and her memories returned to the people, they panicked. And those were such few memories, compared to yours. When your memories return, they'll need help. Remember how I helped you in the beginning, when the receiving of memories was new to you?\"",
+                                          "Jonas nodded. \"It was scary at first. And it hurt a lot.\"",
+                                          "\"You needed me then. And now they will.\"",
+                                          "\"It's no use. They'll find someone to take my place. They'll choose a new Receiver.\"",
+                                          "\"There's no one ready for training, not right away. Oh, they'll speed up the selection, of course. But I can't think of another child who has the right qualities--\"",
+                                          "\"There's a little female with pale eyes. But she's only a Six.\"",
+                                          "\"That's correct. I know the one you mean. Her name is Katharine. But she's too young. So they will be forced to bear those memories.\"",
+                                          "\"I want you to come, Giver,\" Jonas pleaded.",
+                                          "\"No. I have to stay here,\" The Giver said firmly. \"I want to, Jonas. If I go with you, and together we take away all their protection from the memories, Jonas, the community will be left with no one to help them. They'll be thrown into chaos. They'll destroy themselves. I can't go.\"",
+                                          "\"Giver,\" Jonas suggested, \"you and I don't need to care about the rest of them.\"",
+                                          "The Giver looked at him with a questioning smile. Jonas hung his head. Of course they needed to care. It was the meaning of everything.",
+                                          "\"And in any case, Jonas,\" The Giver sighed, \"I wouldn't make it. I'm very weakened now. Do you know that I no longer see colors?\"",
+                                          "Jonas's heart broke. He reached for The Giver's hand.",
+                                          "\"You have the colors,\" The Giver told him. \"And you have the courage. I will help you to have the strength.\"",
+                                          "\"A year ago,\" Jonas reminded him, \"when I had just become a Twelve, when I began to see the first color, you told me that the beginning had been different for you. But that I wouldn't understand.\"",
+                                          "The Giver brightened. \"That's true. And do you know, Jonas, that with all your knowledge now, with all your memories, with all you've learned-- still you won't understand? Because I've been a little selfish. I haven't given any of it to you. I wanted to keep it for myself to the last.\"",
+                                          "\"Keep what?\"",
+                                          "\"When I was just a boy, younger than you, it began to come to me. But it wasn't the seeing-beyond for me. It was different. For me, it was hearing-beyond.\"",
+                                          "Jonas frowned, trying to figure that out. \"What did you hear?\" he asked.",
+                                          "\"Music,\" The Giver said, smiling. \"I began to hear something truly remarkable, and it is called music. I'll give you some before I go.\"",
+                                          "Jonas shook his head emphatically. \"No, Giver,\" he said. \"I want you to keep that, to have with you, when I'm gone.\"",
+                                          "Jonas went home the next morning, cheerfully greeted his parents, and lied easily about what a busy, pleasant night he had had.",
+                                          "His father smiled and lied easily, too, about his busy and pleasant day the day before.",
+                                          "Throughout the school day, as he did his lessons, Jonas went over the plan in his head. It seemed startlingly simple. Jonas and The Giver had gone over it and over it, late into the night hours.",
+                                          "For the next two weeks, as the time for the December Ceremony approached, The Giver would transfer every memory of courage and strength that he could to Jonas. He would need those to help him find the Elsewhere that they were both sure existed. They knew it would be a very difficult journey.",
+                                          "Then, in the middle of the night before the Ceremony, Jonas would secretly leave his dwelling. This was probably the most dangerous part, because it was a violation of a major rule for any citizen not on official business to leave a dwelling at night.",
+                                          "\"I'll leave at midnight,\" Jonas said. \"The Food Collectors will be finished picking up the evening-meal remains by then, and the Path-Maintenance Crews don't start their work that early. So there won't be anyone to see me, unless of course someone is out on emergency business.\"",
+                                          "\"I don't know what you should do if you are seen, Jonas,\" The Giver had said. \"I have memories, of course, of all kinds of escapes. People fleeing from terrible things throughout history. But every situation is individual. There is no memory of one like this.\"",
+                                          "\"I'll be careful,\" Jonas said. \"No one will see me.\"",
+                                          "\"As Receiver-in-training, you're held in very high respect already. So I think you wouldn't be questioned very forcefully.\"",
+                                          "\"I'd just say I was on some important errand for the Receiver. I'd say it was all your fault that I was out after hours,\" Jonas teased.",
+                                          "They both laughed a little nervously. But Jonas was certain that he could slip away, unseen, from his house, carrying an extra set of clothing. Silently he would take his bicycle to the riverbank and leave it there hidden in bushes with the clothing folded beside it.",
+                                          "Then he would make his way through the darkness, on foot, silently, to the Annex.",
+                                          "\"There's no nighttime attendant,\" The Giver explained. \"I'll leave the door unlocked. You simply slip into the room. I'll be waiting for you.\"",
+                                          "His parents would discover, when they woke, that he was gone. They would also find a cheerful note from Jonas on his bed, telling them that he was going for an early morning ride along the river; that he would be back for the Ceremony.",
+                                          "His parents would be irritated but not alarmed. They would think him inconsiderate and they would plan to chastise him, later.",
+                                          "They would wait, with mounting anger, for him; finally they would be forced to go, taking Lily to the Ceremony without him.",
+                                          "\"They won't say anything to anyone, though,\" Jonas said, quite certain. \"They won't call attention to my rudeness because it would reflect on their parenting. And anyway, everyone is so involved in the Ceremony that they probably won't notice that I'm not there. Now that I'm a Twelve and in training, I don't have to sit with my age group any more. So Asher will think I'm with my parents, or with you--\"",
+                                          "\"And your parents will assume you're with Asher, or with me--\"",
+                                          "Jonas shrugged. \"It will take everyone a while to realize that I'm not there at all.\"",
+                                          "\"And you and I will be long on our way by then.\"",
+                                          "In the early morning, The Giver would order a vehicle and driver from the Speaker. He visited the other communities frequently, meeting with their Elders; his responsibilities extended over all the surrounding areas. So this would not be an unusual undertaking.",
+                                          "Ordinarily The Giver did not attend the December Ceremony. Last year he had been present because of the occasion of Jonas's selection, in which he was so involved. But his life was usually quite separate from that of the community. No one would comment on his absence, or on the fact that he had chosen this day to be away.",
+                                          "When the driver and vehicle arrived, The Giver would send the driver on some brief errand. During his absence, The Giver would help Jonas hide in the storage area of the vehicle. He would have with him a bundle of food which The Giver would save from his own meals during the next two weeks.",
+                                          "The Ceremony would begin, with all the community there, and by then Jonas and The Giver would be on their way.",
+                                          "By midday Jonas's absence would become apparent, and would be a cause for serious concern. The Ceremony would not be disrupted--such a disruption would be unthinkable. But searchers would be sent out into the community.",
+                                          "By the time his bicycle and clothing were found, The Giver would be returning. Jonas, by then, would be on his own, making his journey Elsewhere.",
+                                          "The Giver, on his return, would find the community in a state of confusion and panic. Confronted by a situation which they had never faced before, and having no memories from which to find either solace or wisdom, they would not know what to do and would seek his advice.",
+                                          "He would go to the Auditorium where the people would be gathered, still. He would stride to the stage and command their attention.",
+                                          "He would make the solemn announcement that Jonas had been lost in the river. He would immediately begin the Ceremony of Loss.",
+                                          "\"Jonas, Jonas,\" they would say loudly, as they had once said the name of Caleb. The Giver would lead the chant. Together they would let Jonas's presence in their lives fade away as they said his name in unison more slowly, softer and softer, until he was disappearing from them, until he was no more than an occasional murmur and then, by the end of the long day, gone forever, not to be mentioned again.",
+                                          "Their attention would turn to the overwhelming task of bearing the memories themselves. The Giver would help them.",
+                                          "\"Yes, I understand that they'll need you,\" Jonas had said at the end of the lengthy discussion and planning. \"But I'll need you, too. Please come with me.\" He knew the answer even as he made the final plea.",
+                                          "\"My work will be finished,\" The Giver had replied gently, \"when I have helped the community to change and become whole.\"",
+                                          "\"I'm grateful to you, Jonas, because without you I would never have figured out a way to bring about the change. But your role now is to escape. And my role is to stay.\"",
+                                          "\"But don't you want to be with me, Giver?\" Jonas asked sadly.",
+                                          "The Giver hugged him. \"I love you, Jonas,\" he said. \"But I have another place to go. When my work here is finished, I want to be with my daughter.\"",
+                                          "Jonas had been staring glumly at the floor. Now he looked up, startled. \"I didn't know you had a daughter, Giver! You told me that you'd had a spouse. But I never knew about your daughter.\"",
+                                          "The Giver smiled, and nodded. For the first time in their long months together, Jonas saw him look truly happy.",
+                                          "\"Her name was Rosemary,\" The Giver said."))
+
+```
+
+##Chapter 21
+```{r ch21}
+annotate_ch21 <- cnlp_annotate(input = c("It would work. They could make it work, Jonas told himself again and again throughout the day.",
+                                         "But that evening everything changed. All of it--all the things they had thought through so meticulously--fell apart.",
+                                         "That night, Jonas was forced to flee. He left the dwelling shortly after the sky became dark and the community still. It was terribly dangerous because some of the work crews were still about, but he moved stealthily and silently, staying in the shadows, making his way past the darkened dwellings and the empty Central Plaza, toward the river. Beyond the Plaza he could see the House of the Old, with the Annex behind it, outlined against the night sky. But he could not stop there. There was no time. Every minute counted now, and every minute must take him farther from the community.",
+                                        "Now he was on the bridge, hunched over on the bicycle, pedaling steadily. He could see the dark, churning water far below.",
+                                        "He felt, surprisingly, no fear, nor any regret at leaving the community behind. But he felt a very deep sadness that he had left his closest friend behind. He knew that in the danger of his escape he must be absolutely silent; but with his heart and mind, he called back and hoped that with his capacity for hearing-beyond, The Giver would know that Jonas had said goodbye.",
+                                        "It had happened at the evening meal. The family unit was eating together as always: Lily chattering away, Mother and Father making their customary comments (and lies, Jonas knew) about the day. Nearby, Gabriel played happily on the floor, babbling his baby talk, looking with glee now and then toward Jonas, obviously delighted to have him back after the unexpected night away from the dwelling.",
+                                        "Father glanced down toward the toddler. \"Enjoy it, little guy,\" he said. \"This is your last night as visitor.\"",
+                                        "\"What do you mean?\" Jonas asked him.",
+                                        "Father sighed with disappointment. \"Well, you know he wasn't here when you got home this morning because we had him stay overnight at the Nurturing Center. It seemed like a good opportunity, with you gone, to give it a try. He'd been sleeping so soundly.\"",
+                                        "\"Didn't it go well?\" Mother asked sympathetically.",
+                                        "Father gave a rueful laugh. \"That's an understatement. It was a disaster. He cried all night, apparently. The night crew couldn't handle it. They were really frazzled by the time I got to work.\"",
+                                        "\"Gabe, you naughty thing,\" Lily said, with a scolding little cluck toward the grinning toddler on the floor.",
+                                        "\"So,\" Father went on, \"we obviously had to make the decision. Even I voted for Gabriel's release when we had the meeting this afternoon.\"",
+                                        "Jonas put down his fork and stared at his father. \"Release?\" he asked.",
+                                        "Father nodded. \"We certainly gave it our best try, didn't we?\"",
+                                        "\"Yes, we did,\" Mother agreed emphatically.",
+                                        "Lily nodded in agreement, too.",
+                                        "Jonas worked at keeping his voice absolutely calm. \"When?\" he asked. \"When will he be released?\"",
+                                        "\"First thing tomorrow morning. We have to start our preparations for the Naming Ceremony, so we thought we'd get this taken care of right away.\"",
+                                        "\"It's bye-bye to you, Gabe, in the morning,\" Father had said, in his sweet, sing-song voice.",
+                                        "Jonas reached the opposite side of the river, stopped briefly, and looked back. The community where his entire life had been lived lay behind him now, sleeping. At dawn, the orderly, disciplined life he had always known would continue again, without him. The life where nothing was ever unexpected. Or inconvenient. Or unusual. The life without color, pain, or past.",
+                                        "He pushed firmly again at the pedal with his foot and continued riding along the road. It was not safe to spend time looking back. He thought of the rules he had broken so far: enough that if he were caught, now, he would be condemned.",
+                                        "First, he had left the dwelling at night. A major transgression. Second, he had robbed the community of food: a very serious crime, even though what he had taken was leftovers, set out on the dwelling doorsteps for collection.",
+                                        "Third, he had stolen his father's bicycle. He had hesitated for a moment, standing beside the bikeport in the darkness, not wanting anything of his father's and uncertain, as well, whether he could comfortably ride the larger bike when he was so accustomed to his own.",
+                                        "But it was necessary because it had the child seat attached to the back.",
+                                        "And he had taken Gabriel, too.",
+                                        "He could feel the little head nudge his back, bouncing gently against him as he rode. Gabriel was sleeping soundly, strapped into the seat. Before he had left the dwelling, he had laid his hands firmly on Gabe's back and transmitted to him the most soothing memory he could: a slow-swinging hammock under palm trees on an island someplace, at evening, with a rhythmic sound of languid water lapping hypnotically against a beach nearby. As the memory seeped from him into the newchild, he could feel Gabe's sleep ease and deepen. There had been no stir at all when Jonas lifted him from the crib and placed him gently into the molded seat.",
+                                        "He knew that he had the remaining hours of night before they would be aware of his escape. So he rode hard, steadily, willing himself not to tire as the minutes and miles passed. There had been no time to receive the memories he and The Giver had counted on, of strength and courage. So he relied on what he had, and hoped it would be enough.",
+                                        "He circled the outlying communities, their dwellings dark. Gradually the distances between communities widened, with longer stretches of empty road. His legs ached at first; then, as time passed, they became numb.",
+                                        "At dawn Gabriel began to stir. They were in an isolated place; fields on either side of the road were dotted with thickets of trees here and there. He saw a stream, and made his way to it across a rutted, bumpy meadow; Gabriel, wide awake now, giggled as the bicycle jolted him up and down.",
+                                        "Jonas unstrapped Gabe, lifted him from the bike, and watched him investigate the grass and twigs with delight. Carefully he hid the bicycle in thick bushes.",
+                                        "\"Morning meal, Gabe!\" He unwrapped some of the food and fed them both. Then he filled the cup he had brought with water from the stream and held it for Gabriel to drink. He drank thirstily himself, and sat by the stream, watching the newchild play.",
+                                        "He was exhausted. He knew he must sleep, resting his own muscles and preparing himself for more hours on the bicycle. It would not be safe to travel in daylight.",
+                                        "They would be looking for him soon.",
+                                        "He found a place deeply hidden in the trees, took the newchild there, and lay down, holding Gabriel in his arms. Gabe struggled cheerfully as if it were a wrestling game, the kind they had played back in the dwelling, with tickles and laughter.",
+                                        "\"Sorry, Gabe,\" Jonas told him. \"I know it's morning, and I know you just woke up. But we have to sleep now.\"",
+                                        "He cuddled the small body close to him, and rubbed the little back. He murmured to Gabriel soothingly. Then he pressed his hands firmly and transmitted a memory of deep, contented exhaustion. Gabriel's head nodded, after a moment and fell against Jonas's chest.",
+                                        "Together the fugitives slept through the first dangerous day.",
+                                        "The most terrifying thing was the planes. By now, days had passed; Jonas no longer knew how many. The journey had become automatic: the sleep by days, hidden in underbrush and trees; the finding of water; the careful division of scraps of food, augmented by what he could find in the fields. And the endless, endless miles on the bicycle by night.",
+                                        "His leg muscles were taut now. They ached when he settled himself to sleep. But they were stronger, and he stopped now less often to rest. Sometimes he paused and lifted Gabriel down for a brief bit of exercise, running down the road or through a field together in the dark. But always, when he returned, strapped the uncomplaining toddler into the seat again, and remounted, his legs were ready.",
+                                        "So he had enough strength of his own, and had not needed what The Giver might have provided, had there been time.",
+                                        "But when the planes came, he wished that he could have received the courage.",
+                                        "He knew they were search planes. They flew so low that they woke him with the noise of their engines, and sometimes, looking out and up fearfully from the hiding places, he could almost see the faces of the searchers.",
+                                        "He knew that they could not see color, and that their flesh, as well as Gabriel's light golden curls, would be no more than smears of gray against the colorless foliage. But he remembered from his science and technology studies at school that the search planes used heat-seeking devices which could identify body warmth and would hone in on two humans huddled in shrubbery.",
+                                        "So always, when he heard the aircraft sound, he reached to Gabriel and transmitted memories of snow, keeping some for himself.
+Together they became cold; and when the planes were gone, they would shiver, holding each other, until sleep came again.",
+                                        "Sometimes, urging the memories into Gabriel, Jonas felt that they were more shallow, a little weaker than they had been. It was what he had hoped, and what he and The Giver had planned: that as he moved away from the community, he would shed the memories and leave them behind for the people. But now, when he needed them, when the planes came, he tried hard to cling to what he still had, of cold, and to use it for their survival.",
+                                        "Usually the aircraft came by day, when they were hiding. But he was alert at night, too, on the road, always listening intently for the sound of the engines. Even Gabriel listened, and would call out, \"Plane! Plane!\" sometimes before Jonas had heard the terrifying noise. When the aircraft searchers came, as they did occasionally, during the night as they rode, Jonas sped to the nearest tree or bush, dropped to the ground, and made himself and Gabriel cold. But it was sometimes a frighteningly close call.",
+                                        "As he pedaled through the nights, through isolated landscape now, with the communities far behind and no sign of human habitation around him or ahead, he was constantly vigilant, looking for the next nearest hiding place should the sound of engines come.",
+                                        "But the frequency of the planes diminished. They came less often, and flew, when they did come, less slowly, as if the search had become haphazard and no longer hopeful. Finally there was an entire day and night when they did not come at all."))
+
+```
+
+##Chapter 22
+```{r ch22}
+annotate_ch22 <- cnlp_annotate(input = c("Now the landscape was changing. It was a subtle change, hard to identify at first. The road was narrower, and bumpy, apparently no longer tended by road crews. It was harder, suddenly, to balance on the bike, as the front wheel wobbled over stones and ruts.",
+                                         "One night Jonas fell, when the bike jolted to a sudden stop against a rock. He grabbed instinctively for Gabriel; and the newchild, strapped tightly in his seat, was uninjured, only frightened when the bike fell to its side. But Jonas's ankle was twisted, and his knees were scraped and raw, blood seeping through his torn trousers.",
+                                        "Painfully he righted himself and the bike, and reassured Gabe.",
+                                        "Tentatively he began to ride in daylight. He had forgotten the fear of the searchers, who seemed to have diminished into the past. But now there were new fears; the unfamiliar landscape held hidden, unknown perils.",
+                                        "Trees became more numerous, and the forests beside the road were dark and thick with mystery. They saw streams more frequently now and stopped often to drink. Jonas carefully washed his injured knees, wincing as he rubbed at the raw flesh. The constant ache of his swollen ankle was eased when he soaked it occasionally in the cold water that rushed through roadside gullies.",
+                                        "He was newly aware that Gabriel's safety depended entirely upon his own continued strength.",
+                                        "They saw their first waterfall, and for the first time wildlife.",
+                                        "\"Plane! Plane!\" Gabriel called, and Jonas turned swiftly into the trees, though he had not seen planes in days, and he did not hear an aircraft engine now. When he stopped the bicycle in the shrubbery and turned to grab Gabe, he saw the small chubby arm pointing toward the sky.",
+                                        "Terrified, he looked up, but it was not a plane at all. Though he had never seen one before, he identified it from his fading memories, for The Giver had given them to him often. It was a bird.",
+                                        "Soon there were many birds along the way, soaring overhead, calling. They saw deer; and once, beside the road, looking at them curious and unafraid, a small reddish-brown creature with a thick tail, whose name Jonas did not know. He slowed the bike and they stared at one another until the creature turned away and disappeared into the woods.",
+                                        "All of it was new to him. After a life of Sameness and predictability, he was awed by the surprises that lay beyond each curve of the road. He slowed the bike again and again to look with wonder at wildflowers, to enjoy the throaty warble of a new bird nearby, or merely to watch the way wind shifted the leaves in the trees. During his twelve years in the community, he had never felt such simple moments of exquisite happiness.",
+                                        "But there were desperate fears building in him now as well. The most relentless of his new fears was that they would starve. Now that they had left the cultivated fields behind them, it was almost impossible to find food. They finished the meager store of potatoes and carrots they had saved from the last agricultural area, and now they were always hungry.",
+                                        "Jonas knelt by a stream and tried without success to catch a fish with his hands. Frustrated, he threw rocks into the water, knowing even as he did so that it was useless. Finally, in desperation, he fashioned a makeshift net, looping the strands of Gabriel's blanket around a curved stick.",
+                                        "After countless tries, the net yielded two flopping silvery fish. Methodically Jonas hacked them to pieces with a sharp rock and fed the raw shreds to himself and to Gabriel. They ate some berries, and tried without success to catch a bird.",
+                                        "At night, while Gabriel slept beside him, Jonas lay awake, tortured by hunger, and remembered his life in the community where meals were delivered to each dwelling every day.",
+                                        "He tried to use the flagging power of his memory to recreate meals, and managed brief, tantalizing fragments: banquets with huge roasted meats; birthday parties with thick-frosted cakes; and lush fruits picked and eaten, sun-warmed and dripping, from trees.",
+                                        "But when the memory glimpses subsided, he was left with the gnawing, painful emptiness. Jonas remembered, suddenly and grimly, the time in his childhood when he had been chastised for misusing a word. The word had been \"starving.\" You have never been starving, he had been told. You will never be starving.",
+                                        "Now he was. If he had stayed in the community, he would not be. It was as simple as that. Once he had yearned for choice. Then, when he had had a choice, he had made the wrong one: the choice to leave. And now he was starving.",
+                                        "But if he had stayed ...",
+                                        "His thoughts continued. If he had stayed, he would have starved in other ways. He would have lived a life hungry for feelings, for color, for love.",
+                                        "And Gabriel? For Gabriel there would have been no life at all. So there had not really been a choice.",
+                                        "It became a struggle to ride the bicycle as Jonas weakened from lack of food, and realized at the same time that he was encountering something he had for a long time yearned to see: hills. His sprained ankle throbbed as he forced the pedal downward in an effort that was almost beyond him.",
+                                        "And the weather was changing. It rained for two days. Jonas had never seen rain, though he had experienced it often in the memories. He had liked those rains, enjoyed the new feeling of it, but this was different. He and Gabriel became cold and wet, and it was hard to get dry, even when sunshine occasionally followed.",
+                                        "Gabriel had not cried during the long frightening journey. Now he did. He cried because he was hungry and cold and terribly weak. Jonas cried, too, for the same reasons, and another reason as  well. He wept because he was afraid now that he could not save Gabriel. He no longer cared about himself."))
+
+```
 ##Chapter 23
 
 ```{r ch23}
@@ -1547,8 +1802,8 @@ verbcombined %>%
 verbcombined %>% 
   count(chapters) %>% 
   #mutate(chapters = fct_relevel(chapters, 
-                                "1",
-                                "11")) %>%
+                                #"1",
+                                #"11")) %>%
   ggplot(aes(n, chapters)) +
   geom_col() +
   scale_y_discrete(breaks = paste0("ch", c("1", "11", "23")),
@@ -1556,13 +1811,5 @@ verbcombined %>%
   labs(x = "Number of verbs",
        y = "Chapter")
 
-# Interesting finding!! Do you think this could be because  some chapters are longer than others (see my % of words comment from earlier), or this is a meaningful trend? I would love to see in your final version an explanation for why you chose these chapters to look at (i'm assuming beg, middle, and end)/ why you chose verbs to look at. If you want to use gganimate like I suggested, you could put these three plots one after the other and highlight the "verb" bar a color like red. That way you can see how verbs change across chapters in the context of other parts of speech, e.g., you might find that verbs change a much smaller or much larger amount than other parts of speech across chapters
-
-# This graph is extremely effective at demonstrating this effect. I immediately understood what was going on without even needing a title. Beyond what you have here, I think it would be really cool to look specifically at what verbs are most common in the giver. You could present that data in a word cloud, which makes more prevalent words bigger. Since you're interested in change across the book, you could even look at how the verbs change in prevalence across the book 
-
 ```
 The above graph displays the amount of verbs present in chapters 1, 11, and 23. There is a downward trend in the amount of verbs as you move through the book. 
-
-*I really love this figure! It raises so many questions! I think the use of bar plots was particularly effective here. I'm curious about the possibilities of adding an additional variable to this figure - something like "complexity" or a different metric that shows whether the verbs change in quality as well as quantity over the course of the book. Also, I wonder whether this is impacted by a change in length (i.e., is chapter 1 super long?). That may be a fun aspect to play with in a future draft (or just with this data set)*
-
-*I think you picked great forms for the data you picked, and did a really good job navigating complex data - NLP is tough stuff! I haven't poked around NLP done in R before, so definitely learned a lot examining your code!*
