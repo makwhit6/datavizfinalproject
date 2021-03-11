@@ -1998,9 +1998,6 @@ my_theme <- theme_classic(base_family = "sandstone") +
   theme(plot.background = element_rect(fill = "honeydew3")) +
   theme(panel.background = element_rect(fill = "honeydew3"))
 
-#install.packages("colorblindr")
-library(colorblindr)
-
 #version 2
 ch_sep_plot <- ranked_upos %>%
   ggplot() +
@@ -2012,8 +2009,7 @@ ch_sep_plot <- ranked_upos %>%
   facet_wrap(~ Chapter) +
   geom_rect(alpha = .7) +
   aes(fill = upos) +
-  scale_fill_viridis_d(option = "magma",
-                       direction = -1) +
+  scale_fill_OkabeIto() +
   scale_x_continuous(limits = c(-100, 500),
     breaks = c(0, 100, 200, 300, 400, 500)) +
   geom_text(col = "gray13",
