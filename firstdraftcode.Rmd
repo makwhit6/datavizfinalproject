@@ -1810,7 +1810,7 @@ lapply(annotate_ch23, head)
 ```
 The above bar chart displays a count of each part of speech within Chapter 23 of *The Giver*. I will be cleaning up the parts of speech categories, modifying the visualization, and adding color to decrease the cognitive load. 
 
-##Comparison Across Chapters
+
 
 ```{r verbcomparison}
 
@@ -1856,6 +1856,7 @@ verbcombined %>%
 ```
 The above graph displays the amount of verbs present in chapters 1, 11, and 23. There is a downward trend in the amount of verbs as you move through the book. 
 
+##Comparison Across Chapters
 ```{r acrossbook}
 textch1 <- ch1 %>%
   mutate(new_col = "1") %>%
@@ -1951,14 +1952,96 @@ textch23 <- ch23 %>%
 
 fulltext <- rbind(textch1, textch2, textch3, textch4, textch5, textch6, textch7, textch8, textch9, textch10, textch11, textch12, textch13, textch14, textch15, textch16, textch17, textch18, textch19, textch20, textch21, textch22, textch23)
 
-fulltext %>%
+#setting up data
+countuposft <- fulltext %>% 
   select(upos, Chapter) %>%
   group_by(Chapter) %>%
-  arrange(Chapter, )
+  count(upos) %>% 
+  filter(upos != ".",
+         upos != "X",
+         upos != "PUNCT") %>% 
+  mutate(upos = recode(upos,
+                           "VERB" = "Verb",
+                           "SCONJ" = "Subordinating Conjunction",
+                           "PROPN" = "Proper Noun",
+                           "PRON" = "Pronoun",
+                           "PART" = "Particle",
+                           "NUM" = "Numeral",
+                           "NOUN" = "Noun",
+                           "INTJ" = "Interjection",
+                           "DET" = "Determiner",
+                           "CCONJ" = "Coordinating Conjunction",
+                           "AUX" = "Auxillary",
+                           "ADV" = "Adverb",
+                           "ADP" = "Adposition",
+                           "ADJ" = "Adjective")) 
+
+#version 1
+countuposft %>% 
+  ggplot(aes(n, upos)) +
+  geom_col() +
+  labs(x = "Quantity",
+       y = "Parts of Speech")
+
+#data clean up
+ranked_upos <- countuposft %>%
+  group_by(Chapter) %>%
+  arrange(Chapter, -n) %>%
+  mutate(rank = 1:n()) %>%
+  filter(rank <= 14) 
+
+my_theme <- theme_classic(base_family = "sandstone") +
+  theme(axis.text.y = element_blank()) +
+  theme(axis.ticks.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
+  theme(legend.background = element_rect(fill = "honeydew3")) +
+  theme(plot.background = element_rect(fill = "honeydew3")) +
+  theme(panel.background = element_rect(fill = "honeydew3"))
+
+#install.packages("colorblindr")
+library(colorblindr)
+
+#version 2
+ch_sep_plot <- ranked_upos %>%
+  ggplot() +
+  aes(xmin = 0, 
+      xmax = n / 100) +
+  aes(ymin = rank - .45, 
+      ymax = rank + .45,
+      y = rank) +
+  facet_wrap(~ Chapter) +
+  geom_rect(alpha = .7) +
+  aes(fill = upos) +
+  scale_fill_viridis_d(option = "magma",
+                       direction = -1) +
+  scale_x_continuous(limits = c(-100, 500),
+    breaks = c(0, 100, 200, 300, 400, 500)) +
+  geom_text(col = "gray13",
+            hjust = "right",
+            aes(label = upos),
+            x = -50) +
+  scale_y_reverse() +
+  labs(fill = NULL,
+       x = "Count",
+       y = "") + 
+  my_theme
 
 
+#version 3
+#install.packages("gganimate")
+library(gganimate)
 
-
+ch_sep_plot +
+  facet_null() +
+  scale_x_continuous(
+    limits = c(-100, 500),
+    breaks = c(0, 100, 200, 300, 400, 500)) +
+  geom_text(x = 500, y = -50, 
+            family = "sandstone",
+            aes(label = as.character(Chapter)),
+            size = 30, col = "grey18") +
+  aes(group = Chapter) +
+  gganimate::transition_time(Chapter)
 
 
 ```
