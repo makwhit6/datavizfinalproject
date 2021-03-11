@@ -154,12 +154,12 @@ annotate_ch1 <- cnlp_annotate(input = c("It was almost December, and Jonas was b
                                         "\"Lily,\" Mother said, beckoning to the little girl, \"Go on now and get into your nightclothes. Father and I are going to stay here and talk to Jonas for a while.\"",
                                         "Lily sighed, but obediently she got down from her chair. \"Privately?\" she asked.",
                                         "Mother nodded. \"Yes,\" she said, \"this talk will be a private one with Jonas.\"" ))
-
-ch1 <- annotate_ch1$token
-
 ```
 
 ```{r ch1plot}
+
+ch1 <- annotate_ch1$token
+
 #version 1
 ch1 %>% 
   count(upos) %>% 
@@ -300,8 +300,6 @@ annotate_ch2 <- cnlp_annotate(input = c("Jonas watched as his father poured a fr
                                         "Jonas and his mother rolled their eyes, yet they watched affectionately as Lily and her father headed to her sleeping-room with the stuffed elephant that had been given to her as her comfort object when she was born. His mother moved to her big desk and opened her briefcase; her work never seemed to end, even when she was at home in the evening. Jonas went to his own desk and began to sort through his school papers for the evening's assignment. But his mind was still on December and the coming Ceremony.",
                                         "Though he had been reassured by the talk with his parents, he hadn't the slightest idea what Assignment the Elders would be selecting for his future, or how he might feel about it when the day came."))
 
-ch2 <- annotate_ch2$token
-
 ```
 
 ##Chapter 3
@@ -339,9 +337,6 @@ annotate_ch3 <- cnlp_annotate(input = c("\"Oh, look!\" Lily squealed in delight.
                                         "But it hadn't. The only thing that happened was the announcement later that evening over the speaker, the announcement that had singled him out without using his name, that had caused both of his parents to glance meaningfully at his desk where the apple still lay.",
                                         "Now, sitting at his desk, staring at his schoolwork as his family hovered over the newchild in its basket, he shook his head, trying to forget the odd incident. He forced himself to arrange his papers and try to study a little before the evening meal. The newchild, Gabriel, stirred and whimpered, and Father spoke softly to Lily, explaining the feeding procedure as he opened the container that held the formula and equipment.",
                                         "The evening proceeded as all evenings did in the family unit, in the dwelling, in the community: quiet, reflective, a time for renewal and preparation for the day to come. It was different only in the addition to it of the newchild with his pale, solemn, knowing eyes."))
-
-ch3 <- annotate_ch3$token
-
 ```
 
 ##Chapter 4
@@ -387,10 +382,7 @@ He rode through the Central Plaza and the large Auditorium where public meetings
                                         "Jonas grinned. \"I wish I'd been there to see it.\"",
                                         "Larissa frowned. \"I don't know why they don't let children come. Not enough room, I guess. They should enlarge the Releasing Room.\"",
                                         "\"We'll have to suggest that to the committee. Maybe they'd study it,\" Jonas said slyly, and Larissa chortled with laughter.",
-                                        "\"Right!\" she hooted, and Jonas helped her from the tub."))
-
-ch4 <- annotate_ch4$token
-
+                                        "\"Right!\" she hooted, and Jonas helped her from the tub.")) 
 ```
 
 ##Chapter 5
@@ -445,13 +437,11 @@ annotate_ch5 <- cnlp_annotate(input = c("Usually, at the morning ritual when the
                                         "Pedaling rapidly down the path, Jonas felt oddly proud to have joined those who took the pills. For a moment, though, he remembered the dream again. The dream had felt pleasurable. Though the feelings were confused, he thought that he had liked the feelings that his mother had called Stirrings. He remembered that upon waking, he had wanted to feel the Stirrings again.",
                                         "Then, in the same way that his own dwelling slipped away behind him as he rounded a corner on his bicycle, the dream slipped away from his thoughts. Very briefly, a little guiltily, he tried to grasp it back. But the feelings had disappeared. The Stirrings were gone."))
 
-ch5 <- annotate_ch5$token
-
 ```
 
 ##Chapter 6
 ```{r ch6}
-annotate_ch6 <- cnlp_annotate(input = c("\"Lily, please hold still,\" Mother said again.",
+annotate_ch5 <- cnlp_annotate(input = c("\"Lily, please hold still,\" Mother said again.",
                                         "Lily, standing in front of her, fidgeted impatiently. \"I can tie them myself,\" she complained. \"I always have.\"",
                                         "\"I know that,\" Mother replied, straightening the hair ribbons on the little girl's braids. \"But I also know that they constantly come loose and more often than not, they're dangling down your back by afternoon. Today, at least, we want them to be neatly tied and to stay neatly tied.\"",
                                         "\"I don't like hair ribbons. I'm glad I only have to wear them one more year,\" Lily said irritably. \"Next year I get my bicycle, too,\" she added more cheerfully.",
@@ -504,8 +494,6 @@ annotate_ch6 <- cnlp_annotate(input = c("\"Lily, please hold still,\" Mother sai
                                         "He was certain that his Assignment, whatever it was to be, and Asher's too, would be the right one for them. He only wished that the midday break would conclude, that the audience would reenter the Auditorium, and the suspense would end.",
                                         "As if in answer to his unspoken wish, the signal came and the crowd began to move toward the doors."))
 
-ch6 <- annotate_ch6$token
-
 ```
 
 ##Chapter 7
@@ -556,8 +544,6 @@ annotate_ch7 <- cnlp_annotate(input = c("Now Jonas's group had taken a new place
                                         "The numbers continued in order. Jonas sat, dazed, as they moved into the Thirties and then the Forties, nearing the end. Each time, at each announcement, his heart jumped for a moment, and he thought wild thoughts. Perhaps now she would call his name. Could he have forgotten his own number? No. He had always been Nineteen. He was sitting in the seat marked Nineteen.",
                                         "But she had skipped him. He saw the others in his group glance at him, embarrassed, and then avert their eyes quickly. He saw a worried look on the face of his group leader. He hunched his shoulders and tried to make himself smaller in the seat. He wanted to disappear, to fade away, not to exist. He didn't dare to turn and find his parents in the crowd. He couldn't bear to see their faces darkened with shame.",
                                         "Jonas bowed his head and searched through his mind. What had he done wrong?"))
-
-ch7 <- annotate_ch7$token
 
 ```
 
@@ -620,8 +606,6 @@ annotate_ch8 <- cnlp_annotate(input = c("The audience was clearly ill at ease. T
                                       "But at the same time he was filled with fear. He did not know what his selection meant. He did not know what he was to become.",
                                       "Or what would become of him."))
 
-ch8 <- annotate_ch8$token
-
 ```
 
 ##Chapter 9
@@ -683,8 +667,6 @@ annotate_ch9 <- cnlp_annotate(input = c("Now, for the first time in his twelve y
                                          "What if they had all been instructed: You may lie?",
                                          "His mind reeled. Now, empowered to ask questions of utmost rudeness and promised answers--he could, conceivably (though it was almost unimaginable), ask someone, some adult, his father perhaps: \"Do you lie?\"",
                                          "But he would have no way of knowing if the answer he received were true."))
-
-ch9 <- annotate_ch9$token
 
 ```
 
@@ -763,8 +745,6 @@ annotate_ch10 <- cnlp_annotate(input = c("\"I go in here, Jonas,\" Fiona told hi
                                          "Jonas remembered that he was allowed, that he had even been encouraged, to ask questions. \"What are you going to do, sir?\" he asked, hoping that his voice didn't betray his nervousness.",
                                          "\"I am going to transmit the memory of snow,\" the old man said, and placed his hands on Jonas's bare back."))
 
-ch10 <- annotate_ch10$token
-
 ```
 
 ##Chapter 11
@@ -836,11 +816,12 @@ annotate_ch11 <- cnlp_annotate(input = c("Jonas felt nothing unusual at first. H
                                         "The man had sat back down in the comfortable upholstered chair. He moved his shoulders around as if to ease away an aching sensation. He seemed terribly weary.",
                                         "\"Call me The Giver,\" he told Jonas."))
 
-ch11 <- annotate_ch11$token
-
 ```
 
 ```{r ch11plot}
+
+ch11 <- annotate_ch11$token
+
 #version 1
 ch11 %>% 
   count(upos) %>% 
@@ -1004,8 +985,6 @@ annotate_ch12 <- cnlp_annotate(input = c("\"You slept soundly, Jonas?\" his moth
                                          "The hands came to his back. \"Another day,\" The Giver said gently. \"I'll tell you another day. Now we must work. And I've thought of a way to help you with the concept of color.\"",
                                          "\"Close your eyes and be still, now. I'm going to give you a memory of a rainbow.\""))
 
-ch12 <- annotate_ch12$token
-
 ```
 
 ##Chapter 13
@@ -1102,9 +1081,6 @@ annotate_ch13 <- cnlp_annotate(input = c("Days went by, and weeks. Jonas learned
                                          "\"Let me think,\" he went on, when Jonas was on the bed, waiting, a little fearful.",
                                          "\"All right,\" The Giver said after a moment, \"I've decided. We'll start with something familiar. Let's go once again to a hill, and a sled.\"",
                                          "He placed his hands on Jonas's back."))
-
-ch13 <- annotate_ch13$token
-
 ```
 
 ##Chapter 14
@@ -1187,9 +1163,6 @@ annotate_ch14 <- cnlp_annotate(input = c("It was much the same, this memory, tho
                                          "Once more, toward dawn, the newchild woke and cried out. Again Jonas went to him. This time he quite deliberately placed his hand firmly on Gabriel's back, and released the rest of the calming day on the lake. Again Gabriel slept.",
                                          "But now Jonas lay awake, thinking. He no longer had any more than a wisp of the memory, and he felt a small lack where it had been. He could ask The Giver for another sail, he knew. A sail perhaps on ocean, next time, for Jonas had a memory of ocean, now, and knew what it was; he knew that there were sailboats there, too, in memories yet to be acquired.",
                                          "He wondered, though, if he should confess to The Giver that he had given a memory away. He was not yet qualified to be a Giver himself; nor had Gabriel been selected to be a Receiver. That he had this power frightened him. He decided not to tell."))
-
-ch14 <- annotate_ch14$token
-
 ```
 
 ##Chapter 15
@@ -1210,8 +1183,6 @@ annotate_ch15 <- cnlp_annotate(input = c("Jonas entered the Annex room and reali
                                          "From the distance, Jonas could hear the thud of cannons. Overwhelmed by pain, he lay there in the fearsome stench for hours, listened to the men and animals die, and learned what warfare meant.",
                                          "Finally, when he knew that he could bear it no longer and would welcome death himself, he opened his eyes and was once again on the bed.",
                                          "The Giver looked away, as if he could not bear to see what he had done to Jonas. \"Forgive me,\" he said."))
-
-ch15 <- annotate_ch15$token
                                          
 ```
 
@@ -1291,8 +1262,6 @@ annotate_ch16 <- cnlp_annotate(input = c("Jonas did not want to go back. He didn
                                          "The newchild stirred slightly in his sleep. Jonas looked over at him. \"There could be love,\" Jonas whispered.",
                                          "The next morning, for the first time, Jonas did not take his pill. Something within him, something that had grown there through the memories, told him to throw the pill away."))
 
-ch16 <- annotate_ch16$token
-
 ```
 
 ##Chapter 17
@@ -1361,8 +1330,6 @@ annotate_ch17 <- cnlp_annotate(input = c("TODAY IS DECLARED AN UNSCHEDULED HOLID
                                         "Lily grinned. \"I have a better idea for one more story,\" she announced. \"What if actually we were all twins and didn't know it, and so Elsewhere there would be another Lily, and another Jonas, and another Father, and another Asher, and another Chief Elder, and another--\"",
                                         "Father groaned. \"Lily,\" he said. \"It's bedtime.\""))
 
-ch17 <- annotate_ch17$token
-
 ```
 
 ##Chapter 18
@@ -1428,8 +1395,6 @@ annotate_ch18 <- cnlp_annotate(input = c("\"Giver,\" Jonas asked the next aftern
                                          "The Giver was still deep in thought. After a moment, he said, \"If you floated off in the river, I suppose I could help the whole community the way I've helped you. It's an interesting concept. I need to think about it some more. Maybe we'll talk about it again sometime. But not now.\"",
                                          "\"I'm glad you're a good swimmer, Jonas. But stay away from the river.\" He laughed a little, but the laughter was not lighthearted. His thoughts seemed to be elsewhere, and his eyes were very troubled."))
 
-ch18 <- annotate_ch18$token
-
 ```
 
 ##Chapter 19
@@ -1492,8 +1457,6 @@ Then we'd have a problem. But this one,\" he handed one, after rewrapping it, to
                                           "\"You suggested, Jonas, that perhaps she wasn't brave enough? I don't know about bravery: what it is, what it means. I do know that I sat here numb with horror. Wretched with helplessness. And I listened as Rosemary told them that she would prefer to inject herself.\"",
                                           "\"Then she did so. I didn't watch. I looked away.\" The Giver turned to him. \"Well, there you are, Jonas. You were wondering about release,\" he said in a bitter voice.",
                                           "Jonas felt a ripping sensation inside himself, the feeling of terrible pain clawing its way forward to emerge in a cry."))
-
-ch19 <- annotate_ch19$token
 
 ```
 
@@ -1604,8 +1567,6 @@ Feelings are not part of the life she's learned.\"",
                                           "The Giver smiled, and nodded. For the first time in their long months together, Jonas saw him look truly happy.",
                                           "\"Her name was Rosemary,\" The Giver said."))
 
-ch20 <- annotate_ch20$token
-
 ```
 
 ##Chapter 21
@@ -1661,8 +1622,6 @@ Together they became cold; and when the planes were gone, they would shiver, hol
                                         "As he pedaled through the nights, through isolated landscape now, with the communities far behind and no sign of human habitation around him or ahead, he was constantly vigilant, looking for the next nearest hiding place should the sound of engines come.",
                                         "But the frequency of the planes diminished. They came less often, and flew, when they did come, less slowly, as if the search had become haphazard and no longer hopeful. Finally there was an entire day and night when they did not come at all."))
 
-ch21 <- annotate_ch21$token
-
 ```
 
 ##Chapter 22
@@ -1691,8 +1650,6 @@ annotate_ch22 <- cnlp_annotate(input = c("Now the landscape was changing. It was
                                         "It became a struggle to ride the bicycle as Jonas weakened from lack of food, and realized at the same time that he was encountering something he had for a long time yearned to see: hills. His sprained ankle throbbed as he forced the pedal downward in an effort that was almost beyond him.",
                                         "And the weather was changing. It rained for two days. Jonas had never seen rain, though he had experienced it often in the memories. He had liked those rains, enjoyed the new feeling of it, but this was different. He and Gabriel became cold and wet, and it was hard to get dry, even when sunshine occasionally followed.",
                                         "Gabriel had not cried during the long frightening journey. Now he did. He cried because he was hungry and cold and terribly weak. Jonas cried, too, for the same reasons, and another reason as  well. He wept because he was afraid now that he could not save Gabriel. He no longer cared about himself."))
-
-ch22 <- annotate_ch22$token
 
 ```
 ##Chapter 23
@@ -1732,10 +1689,11 @@ annotate_ch23 <- cnlp_annotate(input = c("Jonas felt more and more certain that 
                                          "Downward, downward, faster and faster. Suddenly he was aware with certainty and joy that below, ahead, they were waiting for him; and that they were waiting, too, for the baby. For the first time, he heard something that he knew to be music. He heard people singing.",
                                          "Behind him, across vast distances of space and time, from the place he had left, he thought he heard music too. But perhaps it was only an echo."))
 
-ch23 <- annotate_ch23$token
 ```
 
 ```{r ch23plot}
+
+ch23 <- annotate_ch23$token
 
 #version 1
 ch23 %>% 
@@ -1855,110 +1813,3 @@ verbcombined %>%
 
 ```
 The above graph displays the amount of verbs present in chapters 1, 11, and 23. There is a downward trend in the amount of verbs as you move through the book. 
-
-```{r acrossbook}
-textch1 <- ch1 %>%
-  mutate(new_col = "1") %>%
-  rename(Chapter = new_col)
-
-textch2 <- ch2 %>%
-  mutate(new_col = "2") %>%
-  rename(Chapter = new_col)
-
-textch3 <- ch3 %>%
-  mutate(new_col = "3") %>%
-  rename(Chapter = new_col)
-
-textch4 <- ch4 %>%
-  mutate(new_col = "4") %>%
-  rename(Chapter = new_col)
-
-textch5 <- ch5 %>%
-  mutate(new_col = "5") %>%
-  rename(Chapter = new_col)
-
-textch6 <- ch6 %>%
-  mutate(new_col = "6") %>%
-  rename(Chapter = new_col)
-
-textch7 <- ch7 %>%
-  mutate(new_col = "7") %>%
-  rename(Chapter = new_col)
-
-textch8 <- ch8 %>%
-  mutate(new_col = "8") %>%
-  rename(Chapter = new_col)
-
-textch9 <- ch9 %>%
-  mutate(new_col = "9") %>%
-  rename(Chapter = new_col)
-
-textch10 <- ch10 %>%
-  mutate(new_col = "10") %>%
-  rename(Chapter = new_col)
-
-textch11 <- ch11 %>%
-  mutate(new_col = "11") %>%
-  rename(Chapter = new_col) 
-
-textch12 <- ch12 %>%
-  mutate(new_col = "12") %>%
-  rename(Chapter = new_col) 
-
-textch13 <- ch13 %>%
-  mutate(new_col = "13") %>%
-  rename(Chapter = new_col) 
-
-textch14 <- ch14 %>%
-  mutate(new_col = "14") %>%
-  rename(Chapter = new_col) 
-
-textch15 <- ch15 %>%
-  mutate(new_col = "15") %>%
-  rename(Chapter = new_col)
-
-textch16 <- ch16 %>%
-  mutate(new_col = "16") %>%
-  rename(Chapter = new_col)
-
-textch17 <- ch17 %>%
-  mutate(new_col = "17") %>%
-  rename(Chapter = new_col)
-
-textch18 <- ch18 %>%
-  mutate(new_col = "18") %>%
-  rename(Chapter = new_col) 
-
-textch19 <- ch19 %>%
-  mutate(new_col = "19") %>%
-  rename(Chapter = new_col)
-
-textch20 <- ch20 %>%
-  mutate(new_col = "20") %>%
-  rename(Chapter = new_col)
-
-textch21 <- ch21 %>%
-  mutate(new_col = "21") %>%
-  rename(Chapter = new_col)
-
-textch22 <- ch22 %>%
-  mutate(new_col = "22") %>%
-  rename(Chapter = new_col)
-
-textch23 <- ch23 %>%
-  mutate(new_col = "23") %>%
-  rename(Chapter = new_col) 
-
-fulltext <- rbind(textch1, textch2, textch3, textch4, textch5, textch6, textch7, textch8, textch9, textch10, textch11, textch12, textch13, textch14, textch15, textch16, textch17, textch18, textch19, textch20, textch21, textch22, textch23)
-
-fulltext %>%
-  select(upos, Chapter) %>%
-  group_by(Chapter) %>%
-  arrange(Chapter, )
-
-
-
-
-
-
-```
