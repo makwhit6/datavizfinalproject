@@ -222,13 +222,13 @@ ch1 %>%
                            "ADJ" = "Adjective")) %>%
   mutate(upos = fct_reorder(upos, n)) %>%
   ggplot(aes(n, upos)) +
-  geom_col() +
-  labs(x = "Number of Occurances",
+  geom_col(aes(fill = upos)) +
+  labs(x = "Count",
        y = "",
        title = "Parts of Speech Present in Chapter 1 of The Giver",
-       subtitle = "Displays comparison of parts of speech throughout the chapter") +
+       subtitle = "Comparison of parts of speech throughout the chapter") +
   theme_minimal() +
-  scale_fill_viridis_c(option = "magma")
+  scale_fill_viridis_d(guide = FALSE)
 
 lapply(annotate_ch1, head)
 
