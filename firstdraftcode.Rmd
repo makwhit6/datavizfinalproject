@@ -1999,10 +1999,10 @@ my_theme <- theme_classic(base_family = "sandstone") +
   theme(panel.background = element_rect(fill = "honeydew3"))
 
 #version 2
-ch_sep_plot <- ranked_upos %>%
-  ggplot() +
+ch_sep_plot <- #ranked_upos %>%
+  ggplot(ranked_upos) +
   aes(xmin = 0, 
-      xmax = n / 100) +
+      xmax = n) + # I think this is one of the places that's throwing an error. You've set your x-scale here from 0-5 by dividing by 100, but your limits and breaks below are running -100 - 500. So I changed xmax to "n" but I'd suggest choosing either the 1-5 or 100-500 scale and that should fix one of the issues.
   aes(ymin = rank - .45, 
       ymax = rank + .45,
       y = rank) +
@@ -2015,12 +2015,26 @@ ch_sep_plot <- ranked_upos %>%
   geom_text(col = "gray13",
             hjust = "right",
             aes(label = upos),
-            x = -50) +
+            x = -50) + # You'll want to either change the size for the label here or adjust the x-axis min and location to make the label legible.
   scale_y_reverse() +
   labs(fill = NULL,
        x = "Count",
        y = "") + 
-  my_theme
+  # my_theme # This is the other error getting thrown. I don't know enough about setting up themes as an object the way you did it above, so I'm just copying/pasting what was specified in that to see if that works.
+  theme_classic(base_family = "Times") + # I don't have sandstone downloaded on my computer so changed it to Times for testing
+  theme(axis.text.y = element_blank()) +
+  theme(axis.ticks.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
+  theme(legend.background = element_rect(fill = "honeydew3")) +
+  theme(plot.background = element_rect(fill = "honeydew3")) +
+  theme(panel.background = element_rect(fill = "honeydew3")) # +
+
+  # The following code is just an alternate method for animation that goes along with some code you'll see below. You can delete these lines and use the method you had tried out. It's currently working but the animation is a little jumpy and fast and I thought this might give you a little more control over that but it might take a little tweaking.
+
+  # transition_states(Chapter, transition_length = 4, state_length = 1) + 
+  # ease_aes("sine-in-out") +
+  # enter_fade() +
+  # exit_fade() 
 
 
 #version 3
@@ -2031,15 +2045,20 @@ library(gganimate)
 
 ch_sep_plot +
   facet_null() +
-  #scale_x_continuous(
-    #limits = c(-100, 500),
-   # breaks = c(0, 100, 200, 300, 400, 500)) +
+  scale_x_continuous(
+    limits = c(-100, 500),
+    breaks = c(0, 100, 200, 300, 400, 500)) + # With the xmin/xmax and limits/breaks consistency I described above this should work now
   geom_text(x = 500, y = -50, 
-            family = "sandstone",
+            family = "Times", # Changed to Times for testing here too
             aes(label = as.character(Chapter)),
             size = 30, col = "grey18") +
   aes(group = Chapter) +
   gganimate::transition_states(Chapter)
 
+# The way it's animating is a little choppy, so here's an alternate method using the same packages. This method saves your animation as a gif, which then you can use the ![whatever](filename.gif) syntax to post depending on how you're displaying your final product. It uses the code I commented out above.
 
+# animate(ch_sep_plot, nframes = 350, fps = 25, width = 1200, height = 1000,
+#         renderer = gifski_renderer("ch_race.gif"))
+
+ # You should see the gif in your folder, and if you open with Safari, or whatever browser, it'll let you preview it. If you use this method make sure you remove the facet_wrap--I just opened it and the animation works but it's showing the plot moving through the frames. Whoops, sorry!
 ```
