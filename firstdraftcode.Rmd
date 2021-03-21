@@ -2070,6 +2070,7 @@ countuposft <- fulltext %>%
                            "ADP" = "Adposition",
                            "ADJ" = "Adjective")) 
 
+
 #version 1
 countuposft %>% 
   ggplot(aes(n, upos)) +
@@ -2095,12 +2096,12 @@ my_theme <- theme_classic(base_family = "sandstone") +
 #version 2
 ch_sep_plot <- #ranked_upos %>%
   ggplot(ranked_upos) +
-  aes(xmin = 0, 
-      xmax = n) + # I think this is one of the places that's throwing an error. You've set your x-scale here from 0-5 by dividing by 100, but your limits and breaks below are running -100 - 500. So I changed xmax to "n" but I'd suggest choosing either the 1-5 or 100-500 scale and that should fix one of the issues.
+  aes(xmin = 100, 
+      xmax = 500) + # I think this is one of the places that's throwing an error. You've set your x-scale here from 0-5 by dividing by 100, but your limits and breaks below are running -100 - 500. So I changed xmax to "n" but I'd suggest choosing either the 1-5 or 100-500 scale and that should fix one of the issues.
   aes(ymin = rank - .45, 
       ymax = rank + .45,
       y = rank) +
-  facet_wrap(~ Chapter) +
+  #facet_wrap(~ Chapter) +
   geom_rect(alpha = .7) +
   aes(fill = upos) +
   #scale_fill_OkabeIto() +
@@ -2151,8 +2152,8 @@ ch_sep_plot +
 
 # The way it's animating is a little choppy, so here's an alternate method using the same packages. This method saves your animation as a gif, which then you can use the ![whatever](filename.gif) syntax to post depending on how you're displaying your final product. It uses the code I commented out above.
 
-animate(ch_sep_plot, nframes = 350, fps = 25, width = 1200, height = 1000,
-         renderer = gifski_renderer("ch_race.gif"))
+#animate(ch_sep_plot, nframes = 350, fps = 25, width = 1200, height = 1000,
+#renderer = gifski_renderer("ch_race.gif"))
 
  # You should see the gif in your folder, and if you open with Safari, or whatever browser, it'll let you preview it. If you use this method make sure you remove the facet_wrap--I just opened it and the animation works but it's showing the plot moving through the frames. Whoops, sorry!
 ```
