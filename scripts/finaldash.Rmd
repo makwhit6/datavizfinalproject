@@ -1816,28 +1816,29 @@ Column {data-width=650}
 #install.packages("gifski")
 library(gifski)
 library(gganimate)
-options(gganimate.nframes = 20)
+# options(gganimate.nframes = 20)
 
-#ch_sep_plot +
-#   facet_null() +
-#   scale_x_continuous(
-#     limits = c(-100, 500),
-#     breaks = c(0, 100, 200, 300, 400, 500)) + 
-#   geom_text(x = 1000, y = -10, 
-#             family = "Times",
-#             aes(label = as.character(Chapter)),
-#             size = 30, col = "grey18") +
-#   aes(group = Chapter) +
-#   gganimate::transition_states(Chapter)
+final_animation <-
+ch_sep_plot +
+  facet_null() +
+  scale_x_continuous(
+    limits = c(-100, 500),
+    breaks = c(0, 100, 200, 300, 400, 500)) +
+  geom_text(x = 1000, y = -10,
+            family = "Times",
+            aes(label = as.character(Chapter)),
+            size = 30, col = "grey18") +
+  aes(group = Chapter) +
+  gganimate::transition_states(Chapter)
 
 #Sometimes the animation works better with the following code. If you use the following code instead, then uncomment the code in the chunk above. 
 
-final_annimation <- animate(ch_sep_plot, nframes = 350, fps = 25, width = 1200, height = 1000,
-         renderer = gifski_renderer("ch_race.gif"))
+animate(final_animation, nframes = 350, fps = 25, width = 1200, height = 1000,
+         renderer = gifski_renderer("cha_race.gif"))
 
 ```
 
-![Final Version](ch_race.gif)
+![Final Version](cha_race.gif)
 
 Isolate Verbs
 =======================================================================
