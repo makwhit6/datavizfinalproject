@@ -2152,8 +2152,8 @@ ch_sep_plot +
 
 # The way it's animating is a little choppy, so here's an alternate method using the same packages. This method saves your animation as a gif, which then you can use the ![whatever](filename.gif) syntax to post depending on how you're displaying your final product. It uses the code I commented out above.
 
-#animate(ch_sep_plot, nframes = 350, fps = 25, width = 1200, height = 1000,
-#renderer = gifski_renderer("ch_race.gif"))
+animate(ch_sep_plot, nframes = 350, fps = 25, width = 1200, height = 1000,
+ renderer = gifski_renderer("ch_race.gif"))
 
  # You should see the gif in your folder, and if you open with Safari, or whatever browser, it'll let you preview it. If you use this method make sure you remove the facet_wrap--I just opened it and the animation works but it's showing the plot moving through the frames. Whoops, sorry!
 ```

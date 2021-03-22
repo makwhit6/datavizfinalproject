@@ -1777,11 +1777,11 @@ my_theme <- theme_classic(base_family = "Times") +
 ch_sep_plot <-
   ggplot(ranked_upos) +
   aes(xmin = 0, 
-      xmax = 500) + 
+      xmax = n) + 
   aes(ymin = rank - .45, 
       ymax = rank + .45,
       y = rank) +
-  facet_wrap(~Chapter) +
+  facet_wrap(~ Chapter) +
   geom_rect(alpha = .7) +
   aes(fill = upos) +
   scale_fill_viridis_d() +
@@ -1794,17 +1794,15 @@ ch_sep_plot <-
   scale_y_reverse() +
   labs(fill = NULL,
        x = "Count",
-       y = "") +
-  theme_classic(base_family = "Times") + 
-  theme(axis.text.y = element_blank()) +
-  theme(axis.ticks.y = element_blank()) +
-  theme(axis.line.y = element_blank()) +
-  theme(legend.background = element_rect(fill = "honeydew3")) +
-  theme(plot.background = element_rect(fill = "honeydew3")) +
-  theme(panel.background = element_rect(fill = "honeydew3"))
+       y = "", 
+       title = "Parts of Speech Presnt throughout The Giver",
+       subtitle = "as displayed by animation running through chapters 1 through 23")
 
-
+ggsave("version2.jpg", plot = ch_sep_plot)
 ```
+
+![Version 2](version2.jpg)
+
 
 Column {data-width=650}
 -----------------------------------------------------------------------
@@ -1823,13 +1821,20 @@ ch_sep_plot +
   facet_null() +
   scale_x_continuous(
     limits = c(-100, 500),
-    breaks = c(0, 100, 200, 300, 400, 500)) +
-  geom_text(x = 1000, y = -10,
-            family = "Times",
-            aes(label = as.character(Chapter)),
-            size = 30, col = "grey18") +
+    breaks = c(100, 200, 300, 400, 500)) +
+  #geom_text(x = 100, y = -10,
+  #          family = "Times",
+  #          aes(label = as.character(Chapter)),
+  #          size = 30, col = "grey18") +
   aes(group = Chapter) +
-  gganimate::transition_states(Chapter)
+  gganimate::transition_states(Chapter) +
+  theme_classic(base_family = "Times") + 
+  theme(axis.text.y = element_blank()) +
+  theme(axis.ticks.y = element_blank()) +
+  theme(axis.line.y = element_blank()) +
+  theme(legend.position = "none") +
+  theme(plot.background = element_rect(fill = "honeydew3")) +
+  theme(panel.background = element_rect(fill = "honeydew3"))
 
 #Sometimes the animation works better with the following code. If you use the following code instead, then uncomment the code in the chunk above. 
 
